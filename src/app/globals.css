@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /*Custom box shadow for Inputs*/
+  --shadow-aceternity: 0px 2px 3px -1px rgba(0, 0, 0, 0.1),
+    8px 1px 0px 0px rgba(25, 28, 33, 0.02),
+    0px 0px 0px 1px rgba(25, 28, 33, 0.08);
+
+  --color-primary: var(--color-neutral-800);
+  --color-secondary: var(--color-neutral-500);
+}
+
+.dark {
+  --color-primary: var(--color-neutral-100);
+  --color-secondary: var(--color-neutral-400);
+}
