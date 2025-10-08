@@ -1,0 +1,132 @@
+---
+title: "Tailwind CSS v4 — What’s New, Pros, and Cons"
+description: "Tailwind CSS v4 is a major release that brings a more modern, faster, and CSS-native approach to building user interfaces. This article covers what’s new, the pros, cons, and when (or when not) to adopt it."
+image: "public/tailwind-article-banner.webp"
+date: "2025-10-07"
+---
+
+# Tailwind CSS v4 — What’s New, Pros, and Cons
+
+Tailwind CSS v4 is a major release that brings a more modern, faster, and CSS-native approach to building user interfaces.
+This article covers what’s new, the pros, cons, and when (or when not) to adopt it.
+
+## 🚀 What’s New in Tailwind CSS v4
+
+Tailwind v4 leans heavily into modern CSS features, performance, and simplicity.
+
+**Feature / Change** <br/>
+**1. High-performance engine**
+
+Full builds are up to **5× faster**, and incremental builds are over **100× faster**.
+
+**2. CSS-first configuration**
+
+Moves customization from `tailwind.config.js` into **CSS variables** and **cascade layers**.
+
+**3. Built-in toolchain features**
+
+Handles `@import`, vendor prefixes, and nested CSS automatically — fewer plugins needed.
+
+**4. Automatic content detection**
+
+Auto-discovers template files without needing explicit “content” paths.
+
+**5. Modern CSS features support**
+
+Supports **container queries**, **cascade layers**, `color-mix()`, and `@property`.
+
+**6. New utilities and variants**
+
+Adds 3D transforms, new gradient APIs, text-shadow, `@starting-style`, and `not-*` variants.
+
+**7. Wide-gamut color palette (P3)**
+
+More vivid colors for modern high-definition displays.
+
+**8. Smaller installation footprint**
+
+Fewer dependencies, simpler setup, and smaller builds.
+
+**9. Upgrade tooling**
+
+Official migration guide and automated upgrade assistant for v3 → v4.
+
+In essence, v4 makes Tailwind faster, leaner, and closer to native CSS.
+
+## ✅ Pros of Tailwind CSS v4
+
+**1. Lightning-fast build times**
+
+The new Rust-powered engine drastically improves performance for both full and incremental builds.
+
+**2. Reduced configuration overhead**
+
+Most setup is handled automatically — fewer files, plugins, and boilerplate to maintain.
+
+**3. Closer alignment with CSS standards**
+
+Tailwind now embraces modern CSS capabilities, making it more future-proof and interoperable with vanilla CSS.
+
+**4. Expanded utilities and variants**
+
+Powerful built-in utilities for shadows, masks, gradients, and transforms reduce the need for custom CSS.
+
+**5. CSS-based customization**
+
+Design tokens and themes are defined via CSS variables and cascade layers, improving flexibility and maintainability.
+
+**6. Smaller install size**
+
+The dependency tree is lighter, improving startup time and simplifying CI/CD pipelines.
+
+**7. Improved defaults and content discovery**
+
+Automatic file detection and sensible defaults make new projects start seamlessly.
+
+## ⚠️ Cons / Trade-offs
+
+**1. Learning curve**
+
+Developers used to JS-based configuration must adapt to the CSS-first paradigm — a mental shift.
+
+**2. Migration challenges**
+
+Older custom configs and plugins may break or need manual updates during migration.
+
+**3. Verbose HTML**
+
+The classic Tailwind drawback remains — long class lists can clutter markup.
+
+**4. Over-dependence on Tailwind semantics**
+
+When everything is utility-driven, switching frameworks or refactoring can become cumbersome.
+
+**5. Browser compatibility issues**
+
+Some modern CSS features (like @property or container queries) may have limited support on older browsers.
+
+**6. Less flexibility with JS logic**
+
+Dynamic theming or programmatic configs are harder when most customization moves to CSS.
+
+**7. Hidden complexity**
+
+Abstractions (like layers and variable cascades) can make debugging style issues trickier.
+
+## 💡 When (and When Not) to Adopt Tailwind v4
+
+### Use Tailwind v4 if:
+
+- You’re starting a new project.
+- You want fast builds and modern CSS support.
+- Your team is comfortable with CSS variables and cascade layers.
+- You’re building performance-oriented, modern web apps.
+
+### Be cautious or delay upgrade if:
+
+- You manage a large legacy project with complex Tailwind v3 setups.
+- You rely on third-party plugins or deep JS configs.
+- You need broad browser support (including older versions).
+- Your team isn’t yet familiar with CSS-first configuration.
+
+💡 Tip: Consider a gradual migration strategy — adopt v4 in new modules and test before full rollout.

@@ -1,10 +1,8 @@
 import type { NextConfig } from "next";
 
-import createMDX from "@next/mdx";
-
 const nextConfig: NextConfig = {
   /* config options here */
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  transpilePackages: ["next-mdx-remote"],
   images: {
     remotePatterns: [
       {
@@ -14,8 +12,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-const withMDX = createMDX({
-  extension: /\.(md|mdx)$/,
-});
-
-export default withMDX(nextConfig);
+export default nextConfig;

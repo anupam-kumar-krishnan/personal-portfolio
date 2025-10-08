@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "../components/navbar/index";
+import { ViewTransitions } from "next-view-transitions";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,14 +31,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        suppressHydrationWarning
-        className={`${inter.className} antialiased bg-neutral-100 dark:bg-neutral-700`}
-      >
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          suppressHydrationWarning
+          className={`${inter.className} antialiased bg-neutral-100 dark:bg-neutral-700`}
+        >
+          <Navbar />
+          {children}
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

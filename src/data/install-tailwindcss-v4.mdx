@@ -1,0 +1,60 @@
+---
+title: "How to Install Tailwind CSS v4 (Step-by-Step Guide)"
+description: "Tailwind CSS v4 is a major release that simplifies the setup process — no more `postcss.config.js`, no `tailwind.config.js` (unless you want one), and no build tools required for many projects."
+image: "public/images/blog/tailwind-article-banner.webp"
+date: "2025-10-01"
+---
+
+# How to Install Tailwind CSS v4 (Step-by-Step Guide)
+
+Tailwind CSS v4 is a major release that simplifies the setup process — no more `postcss.config.js`, no `tailwind.config.js` (unless you want one), and no build tools required for many projects.
+
+It’s designed to just work with modern CSS, providing a cleaner, faster developer experience.
+
+## 🚀 What’s New in v4 Setup
+
+✅ No tailwind.config.js by default — Configuration now happens directly in CSS. <br />
+✅ No PostCSS setup required — Tailwind runs natively through its own build engine. <br />
+✅ Up to 100× faster builds — Thanks to the new Rust-based engine. <br />
+✅ CSS-first approach — Themes and tokens can be defined using native CSS variables. <br />
+
+### 🧰 Prerequisites
+
+Before starting, make sure you have:
+
+- Node.js 18+
+- npm, yarn, or pnpm
+- A modern frontend project (Next.js, React, or Vite)
+
+If you don’t have one, you can create it using:
+
+```bash
+npx create-next-app@latest my-project
+# or
+npm create vite@latest my-project
+```
+
+### 🪄 Step 1: Install Tailwind CSS v4
+
+Run the following command in your project directory:
+
+```
+npm install -D tailwindcss@next
+```
+
+_(As of v4, the “next” tag is used until full stable release.)_
+
+This installs the latest Tailwind v4 package and its new lightweight compiler.
+
+### ⚙️ Step 2: Create Your CSS File
+
+If you don’t already have one, create a CSS file for global styles, e.g. src/index.css or app/globals.css.
+
+Then add these Tailwind directives:
+
+```css
+@import "tailwindcss";
+```
+
+That’s it! ✨ <br />
+You no longer need separate `@tailwind base`, `@tailwind components`, and `@tailwind utilities` lines — Tailwind v4 bundles them automatically.
