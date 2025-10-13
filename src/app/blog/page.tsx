@@ -13,7 +13,7 @@ export async function generateMetadata({
 
   if (!frontmatter) {
     return {
-      title: "Blog not found",
+      title: "All Blogs",
     };
   }
   return {

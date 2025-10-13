@@ -20,9 +20,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio Website",
+  title: "Anupam Kumar Krishnan",
   description:
-    "Personal Portfolio showcasing skills, minimal and smooth microinteractions as a Developer",
+    "Personal Portfolio showcasing skills, minimal and smooth microinteractions as a Software Developer",
 };
 
 export default function RootLayout({

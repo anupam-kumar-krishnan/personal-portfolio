@@ -2,6 +2,8 @@ import { Container } from "@/components/container";
 import { Inter } from "next/font/google";
 import { Projects } from "@/components/projects";
 import { LandingBlogs } from "@/components/landing-blogs";
+import { DraggableCardDemo as Collage } from "@/components/collage";
+import { Timeline } from "@/components/timeline";
 
 export default function AboutPage() {
   return (
@@ -17,6 +19,12 @@ export default function AboutPage() {
           not coding, you can find me exploring new technologies, making side
           projects or sharing knowledge through technical writing.
         </p>
+        <p className="text-secondary max-w-lg pt-4 text-sm md:text-sm">
+          I love to travel and explore new places. I'm a big fan of nature and
+          adventure.I'm also a big fan of technology and innovation.
+        </p>
+        <Collage />
+        <Timeline />
       </Container>
     </div>
   );

@@ -37,7 +37,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   const y = useTransform(scrollY, [0, 100], [0, 10]);
-  const width = useTransform(scrollY, [0, 100], ["50%", "40%"]);
+  const width = useTransform(scrollY, [0, 100], ["55%", "45%"]);
   // const opacity = useTransform(scrollY, [0, 100], [1, 0.8]);
 
   const filter = useMotionTemplate`blur (${useTransform(
@@ -68,13 +68,15 @@ export const Navbar = () => {
         }}
         className="fixed backdrop-blur-sm inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between px-3 py-2 rounded-4xl dark:bg-neutral-900"
       >
-        <Image
-          className="h-10 w-10 rounded-full"
-          src="/avatar.webp"
-          alt="Avatar"
-          height="100"
-          width="100"
-        />
+        <Link href="/">
+          <Image
+            className="h-10 w-10 rounded-full"
+            src="/avatar.webp"
+            alt="Avatar"
+            height="100"
+            width="100"
+          />
+        </Link>
 
         <div className="flex items-center">
           {navItems.map((item, idx) => (
