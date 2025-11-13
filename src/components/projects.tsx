@@ -7,25 +7,24 @@ import Link from "next/link";
 export const Projects = () => {
   const projects = [
     {
-      title: "UI Library",
+      title: "Code Snippet UI Library",
       src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/macbook-scroll.png",
       href: "#",
       description:
         "A UI Library consisting of 25+ re-usable components having suttle animation",
     },
     {
-      title: "Resume Reviewer",
+      title: "AI Resume Reviewer",
       src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/animated-testimonials.webp",
-      href: "#",
+      href: "https://resume-reviewer-alpha.vercel.app/",
       description:
-        "A UI Library consisting of 25+ re-usable components having suttle animation",
+        "An AI Resume Reviewer to upload resume, and let AI instantly evaluate and match candidates.",
     },
     {
-      title: "Code Snippet",
+      title: "Reqon",
       src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/apple-cards-carousel.png",
       href: "#",
-      description:
-        "A UI Library consisting of 25+ re-usable components having suttle animation",
+      description: "A Modern and Open-Source API Testing Tool",
     },
     {
       title: "iSad",

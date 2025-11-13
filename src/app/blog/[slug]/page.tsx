@@ -32,7 +32,7 @@ export default async function SingleBlogPage({
 
   const { content, frontmatter } = blog as {
     content: React.ReactElement;
-    frontmatter: { title: string };
+    frontmatter: { title: string; image?: string };
   };
 
   console.log(frontmatter);
@@ -40,6 +40,11 @@ export default async function SingleBlogPage({
   return (
     <div className="min-h-screen flex items-start justify-start">
       <Container className="min-h-[200vh] px-10 md:pt-20 md:pb-10">
+        <img
+          src={frontmatter.image}
+          alt={frontmatter.title}
+          className="max-h-96 w-full border border-neutral-200 shadow-2xl rounded-2xl max-w-2xl mx-auto mb-20 object-cover"
+        />
         <div className="prose mx-auto">{content}</div>
       </Container>
     </div>

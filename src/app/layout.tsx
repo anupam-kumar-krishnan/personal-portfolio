@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "../components/navbar/index";
 import { ViewTransitions } from "next-view-transitions";
+import { Footer } from "@/components/navbar/footer";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,8 +39,10 @@ export default function RootLayout({
           suppressHydrationWarning
           className={`${inter.className} antialiased bg-neutral-100 dark:bg-neutral-700`}
         >
+          <Toaster position="top-center" />
           <Navbar />
           {children}
+          <Footer />
         </body>
       </html>
     </ViewTransitions>

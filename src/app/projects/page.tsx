@@ -1,17 +1,13 @@
 import { Container } from "@/components/container";
-import { Inter } from "next/font/google";
 import { Projects } from "@/components/projects";
-import { LandingBlogs } from "@/components/landing-blogs";
-import { DraggableCardDemo as Collage } from "@/components/collage";
-import { Timeline } from "@/components/timeline";
-import Heading from "@/components/heading";
+import { Heading } from "@/components/heading";
 import Subheading from "@/components/sub-heading";
 
-export default function AboutPage() {
+export default function ProjectsPage() {
   return (
     <div className="min-h-screen flex items-start justify-start">
       <Container className="min-h-[200vh] p-10 md:pt-20 md:pb-10">
-        <Heading>About Me</Heading>
+        <Heading>Projects</Heading>
         <Subheading>
           I'm a passionate Software Engineer dedicated to crafting elegant
           solutions for complex problems. With exertise in frontend, I enjoy
@@ -19,12 +15,7 @@ export default function AboutPage() {
           not coding, you can find me exploring new technologies, making side
           projects or sharing knowledge through technical writing.
         </Subheading>
-        <Subheading>
-          I love to travel and explore new places. I'm a big fan of nature and
-          adventure.I'm also a big fan of technology and innovation.
-        </Subheading>
-        <Collage />
-        <Timeline />
+        <Projects />
       </Container>
     </div>
   );
