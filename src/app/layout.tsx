@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "../components/navbar/index";
-import { ViewTransitions } from "next-view-transitions";
 import { Footer } from "@/components/navbar/footer";
 import { Toaster } from "sonner";
 
@@ -33,18 +32,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          suppressHydrationWarning
-          className={`${inter.className} relative [--pattern-fg:var(--color-neutral-950)]/5 antialiased bg-neutral-100 dark:bg-neutral-700`}
-        >
-          <Toaster position="top-center" />
-          <Navbar />
-          {children}
-          <Footer />
-        </body>
-      </html>
-    </ViewTransitions>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className={`${inter.className} relative [--pattern-fg:var(--color-neutral-950)]/5 antialiased bg-neutral-100 dark:bg-neutral-700`}
+      >
+        <Toaster position="top-center" />
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }

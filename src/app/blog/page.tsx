@@ -1,6 +1,6 @@
 import { Container } from "@/components/container";
 import { getBlogs, getSingleBlog, getBlogFrontMatterBySlug } from "@/utils/mdx";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import Heading from "@/components/heading";
 import Subheading from "@/components/sub-heading";
 

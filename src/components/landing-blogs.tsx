@@ -1,6 +1,6 @@
 import React from "react";
 import { getBlogs } from "@/utils/mdx";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import SectionHeading from "@/components/section-heading";
 
 export const LandingBlogs = async () => {
