@@ -71,7 +71,7 @@ export const Timeline = () => {
   return (
     <div ref={ref} className="py-10 shadow-section-inset">
       <SectionHeading className="text-neutral-700 w-fit mb-8 ml-4 bg-neutral-100 pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-sm md:text-sm">
-        Here's the Timeline of my Life
+        Here&apos;s the Timeline of my Life
       </SectionHeading>
       {data.map((year, index) => (
         <div key={year.title} className="mb-4 px-4">

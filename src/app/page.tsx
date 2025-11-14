@@ -14,7 +14,7 @@ export default function Home() {
         <div className="absolute left-0 top-0 h-full w-8 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
         <Heading>Anupam Kumar Krishnan</Heading>
         <Subheading>
-          I'm a Software Engineer with a passion for building scalable and
+          I&apos;m a Software Engineer with a passion for building scalable and
           efficient systems with expertise in Frontend Development.
         </Subheading>
         <Projects projects={projects.slice(0, 3)} />
