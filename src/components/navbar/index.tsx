@@ -36,8 +36,8 @@ export const Navbar = () => {
 
   const [scrolled, setScrolled] = useState<boolean>(false);
 
-  const y = useTransform(scrollY, [0, 100], [0, 10]);
-  const width = useTransform(scrollY, [0, 100], ["55%", "45%"]);
+  const y = useTransform(scrollY, [0, 100], [0, 15]);
+  const width = useTransform(scrollY, [0, 100], ["52%", "45%"]);
   // const opacity = useTransform(scrollY, [0, 100], [1, 0.8]);
 
   const filter = useMotionTemplate`blur (${useTransform(

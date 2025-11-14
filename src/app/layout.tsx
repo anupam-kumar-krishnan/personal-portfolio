@@ -37,7 +37,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body
           suppressHydrationWarning
-          className={`${inter.className} antialiased bg-neutral-100 dark:bg-neutral-700`}
+          className={`${inter.className} relative [--pattern-fg:var(--color-neutral-950)]/5 antialiased bg-neutral-100 dark:bg-neutral-700`}
         >
           <Toaster position="top-center" />
           <Navbar />

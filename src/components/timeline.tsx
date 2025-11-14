@@ -5,6 +5,7 @@ import { IconCircleCheckFilled } from "@tabler/icons-react";
 import { FaCheckCircle } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 import { CheckCircle } from "lucide-react";
+import SectionHeading from "./section-heading";
 
 type Data = {
   title: string;
@@ -16,7 +17,7 @@ type Data = {
 
 export const Timeline = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
+  const isInView = useInView(ref, { once: true, amount: 0.6 });
 
   const data: Data[] = [
     {
@@ -68,16 +69,20 @@ export const Timeline = () => {
     },
   ];
   return (
-    <div ref={ref} className="py-10">
-      <p className="text-secondary max-w-lg pb-5 text-sm md:text-sm">
-        Here's the Timeline of my Life.
-      </p>
+    <div ref={ref} className="py-10 shadow-section-inset">
+      <SectionHeading className="text-neutral-700 w-fit mb-8 ml-4 bg-neutral-100 pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-sm md:text-sm">
+        Here's the Timeline of my Life
+      </SectionHeading>
       {data.map((year, index) => (
-        <div key={year.title} className="mb-4">
+        <div key={year.title} className="mb-4 px-4">
           <motion.h2
+            initial={{
+              filter: "blur(10px)",
+              opacity: 0,
+            }}
             animate={{
-              filter: inView ? "blur(0px)" : "blur(10px)",
-              opacity: inView ? 1 : 0,
+              filter: isInView ? "blur(0px)" : "blur(10px)",
+              opacity: isInView ? 1 : 0,
             }}
             transition={{
               duration: 0.3,
@@ -90,12 +95,16 @@ export const Timeline = () => {
           </motion.h2>
           <div className="flex flex-col gap-4">
             {year.content.map((item, idx) => (
-              <div key={item.title} className="">
-                <Step isInView={inView} idx={idx}>
+              <div key={item.title} className="pl-4">
+                <Step isInView={isInView} idx={idx}>
                   <motion.h3
+                    initial={{
+                      opacity: 0,
+                      y: -10,
+                    }}
                     animate={{
-                      opacity: inView ? 1 : 0,
-                      y: inView ? 0 : -10,
+                      opacity: isInView ? 1 : 0,
+                      y: isInView ? 0 : -10,
                     }}
                     transition={{
                       duration: 0.3,
@@ -108,9 +117,19 @@ export const Timeline = () => {
                   </motion.h3>
                 </Step>
                 {item.description && (
-                  <p className="pt-1 pl-12 text-sm text-neutral-400">
+                  <motion.p
+                    initial={{
+                      opacity: 0,
+                      y: -10,
+                    }}
+                    animate={{
+                      opacity: isInView ? 1 : 0,
+                      y: isInView ? 0 : -10,
+                    }}
+                    className="pt-1 pl-12 text-sm text-neutral-400"
+                  >
                     {item.description}
-                  </p>
+                  </motion.p>
                 )}
               </div>
             ))}
@@ -134,6 +153,10 @@ const Step = ({
 }) => {
   return (
     <motion.div
+      initial={{
+        opacity: 0,
+        y: -10,
+      }}
       animate={{
         opacity: isInView ? 1 : 0,
         y: isInView ? 0 : -10,
@@ -141,7 +164,7 @@ const Step = ({
       transition={{
         duration: 0.3,
         ease: "easeInOut",
-        delay: 0.3 * idx,
+        delay: 0.2 * idx,
       }}
       className={cn("flex items-start gap-2", className)}
     >

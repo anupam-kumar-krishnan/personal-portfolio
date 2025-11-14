@@ -1,6 +1,7 @@
 import React from "react";
 import { getBlogs } from "@/utils/mdx";
 import { Link } from "next-view-transitions";
+import SectionHeading from "@/components/section-heading";
 
 export const LandingBlogs = async () => {
   const allBlogs = await getBlogs();
@@ -10,13 +11,16 @@ export const LandingBlogs = async () => {
   };
 
   return (
-    <div>
-      <p className="text-secondary max-w-lg pt-4 text-sm md:text-sm pb-5">
+    <div className="">
+      <SectionHeading
+        className="w-fit ml-5 pt-0.5 pb-0.5 mb-5 pl-0.5 pr-0.5 bg-neutral-100 text-neutral-700"
+        delay={0.4}
+      >
         I love writing things down
-      </p>
+      </SectionHeading>
 
-      <div className="flex flex-col gap-4">
-        {allBlogs.map((blog, idx) => (
+      <div className="flex flex-col gap-8 px-4">
+        {allBlogs.slice(0, 3).map((blog, idx) => (
           <Link key={blog.title} href={`/blog/${blog.slug}`}>
             <div className="flex items-center justify-between">
               <h2 className="text-primary text-base font-bold tracking-tight">
@@ -31,8 +35,8 @@ export const LandingBlogs = async () => {
                 })}
               </p>
             </div>
-            <p className="text-secondary max-w-lg pt-4 text-sm md:text-sm">
-              {truncate(blog.description || "", 150)}
+            <p className="text-secondary max-w-lg pt-2 text-sm md:text-sm sm:pb-5">
+              {truncate(blog.description || "", 120)}
             </p>
           </Link>
         ))}

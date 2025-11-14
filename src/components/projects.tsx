@@ -3,43 +3,23 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { Project, projects as defaultProjects } from "@/constants/projects";
+import SectionHeading from "./section-heading";
 
-export const Projects = () => {
-  const projects = [
-    {
-      title: "Code Snippet UI Library",
-      src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/macbook-scroll.png",
-      href: "#",
-      description:
-        "A UI Library consisting of 25+ re-usable components having suttle animation",
-    },
-    {
-      title: "AI Resume Reviewer",
-      src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/animated-testimonials.webp",
-      href: "https://resume-reviewer-alpha.vercel.app/",
-      description:
-        "An AI Resume Reviewer to upload resume, and let AI instantly evaluate and match candidates.",
-    },
-    {
-      title: "Reqon",
-      src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/apple-cards-carousel.png",
-      href: "#",
-      description: "A Modern and Open-Source API Testing Tool",
-    },
-    {
-      title: "iSad",
-      src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/apple-cards-carousel.png",
-      href: "#",
-      description:
-        "A UI Library consisting of 25+ re-usable components having suttle animation",
-    },
-  ];
+export const Projects = ({
+  projects = defaultProjects,
+}: {
+  projects?: Project[];
+}) => {
   return (
-    <div className="py-10">
-      <p className="text-secondary max-w-lg pt-4 text-sm md:text-sm">
-        I love building web apps and products that can impact millions of lives
-      </p>
-      <div className="grid grid-cols-1 gap-15 py-4 md:grid-cols-2">
+    <div className="my-4 border-y border-neutral-100 shadow-section-inset">
+      <SectionHeading
+        delay={0.2}
+        className="bg-neutral-100 w-fit mt-10 ml-4 text-center pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-neutral-700 text-sm sm:text:sm"
+      >
+        I love building things
+      </SectionHeading>
+      <div className="grid grid-cols-1 gap-15 py-4 md:grid-cols-3 px-4">
         {projects.map((project, idx) => (
           <motion.div
             initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
@@ -52,7 +32,7 @@ export const Projects = () => {
             key={project.title}
             className="group relative h-72 mb-4"
           >
-            <Link href={project.href}>
+            <Link href={project.href} target="_blank" rel="noopener noreferrer">
               <Image
                 src={project.src}
                 alt={project.title}
