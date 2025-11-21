@@ -14,7 +14,7 @@ export const Work = async () => {
   };
 
   return (
-    <div className="">
+    <div className="pt-4 border-y border-neutral-100 shadow-section-inset">
       <SectionHeading
         className="w-fit ml-5 pt-0.5 pb-0.5 mb-5 pl-0.5 pr-0.5 bg-neutral-100 text-neutral-700"
         delay={0.4}
