@@ -19,7 +19,7 @@ export const LandingBlogs = async () => {
         I love writing things down
       </SectionHeading>
 
-      <div className="flex flex-col gap-8 px-4">
+      <div className="flex flex-col gap-8 px-4 pb-8">
         {allBlogs.slice(0, 3).map((blog, idx) => (
           <Link key={blog.title} href={`/blog/${blog.slug}`}>
             <div className="flex items-center justify-between">
