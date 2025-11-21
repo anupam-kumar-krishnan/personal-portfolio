@@ -33,7 +33,7 @@ export const Work = async () => {
           <p className="text-secondary text-sm md:text-sm">
             <img
               src="https://www.freepnglogos.com/uploads/ibm-logo-png/ibm-logo-png-transparent-svg-vector-bie-supply-3.png"
-              className="absolute w-20 h-16 right-10 -mt-8 sm:w-30 sm:h-22"
+              className="absolute hidden lg:block right-10 -mt-8 sm:w-30 sm:h-22"
             />
           </p>
         </div>
