@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { Project, projects as defaultProjects } from "@/constants/projects";
 import SectionHeading from "./section-heading";
+import { IconType } from "react-icons";
 
 export const Projects = ({
   projects = defaultProjects,
@@ -19,7 +20,7 @@ export const Projects = ({
       >
         I love building things
       </SectionHeading>
-      <div className="grid grid-cols-1 gap-15 py-4 md:grid-cols-3 px-4">
+      <div className="grid grid-cols-1 gap-15 py-8 md:grid-cols-3 px-4">
         {projects.map((project, idx) => (
           <motion.div
             initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
@@ -43,7 +44,7 @@ export const Projects = ({
               <h2 className="z-20 mt-2 font-semibold tracking-tight text-neutral-500 dark:text-neutral-400">
                 {project.title}
               </h2>
-              <p className="mt-2 max-w-xs text-sm text-neutral-500 dark:text-neutral-400">
+              <p className="mt-2 max-w-xs text-sm text-neutral-500 dark:text-neutral-400 pb-4">
                 {project.description}
               </p>
             </Link>

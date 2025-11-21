@@ -7,44 +7,31 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Code Snippet UI Library",
-    src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/macbook-scroll.png",
-    href: "#",
+    title: "Snappy UI Library",
+    src: "/projects/snappy-ui.png",
+    href: "https://github.com/anupam-kumar-krishnan/snappy-ui",
     description:
-      "A UI Library consisting of 25+ re-usable components having suttle animation",
+      "A UI Library consisting of 25+ re-usable components having subtle animation",
   },
   {
     title: "AI Resume Reviewer",
-    src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/animated-testimonials.webp",
+    src: "/projects/resume-reviewer.png",
     href: "https://resume-reviewer-alpha.vercel.app/",
     description:
-      "An AI Resume Reviewer to upload resume, and let AI instantly evaluate and match candidates.",
+      "An AI Resume Reviewer to upload resume, and let AI instantly evaluate and provide feedback.",
   },
   {
     title: "Reqon",
-    src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/apple-cards-carousel.png",
-    href: "#",
-    description: "A Modern and Open-Source API Testing Tool",
+    src: "/projects/reqon.png",
+    href: "https://github.com/anupam-kumar-krishnan/reqon",
+    description:
+      "A Modern API Testing Tool which manage REST APIs and WebSocket connections efficiently.",
   },
   {
-    title: "iSad",
-    src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/apple-cards-carousel.png",
+    title: "CodeBits",
+    src: "/projects/code-snippet.png",
     href: "#",
     description:
-      "A UI Library consisting of 25+ re-usable components having suttle animation",
-  },
-  {
-    title: "iMad",
-    src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/apple-cards-carousel.png",
-    href: "#",
-    description:
-      "A UI Library consisting of 25+ re-usable components having suttle animation",
-  },
-  {
-    title: "iCad",
-    src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/apple-cards-carousel.png",
-    href: "#",
-    description:
-      "A UI Library consisting of 25+ re-usable components having suttle animation",
+      "A Tool to create customizable, shareable code snippets with auto language detection, theming, font options, dark mode, and export as image or SVG.",
   },
 ];
