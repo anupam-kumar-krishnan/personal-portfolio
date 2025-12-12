@@ -1,12 +1,5 @@
 import { Container } from "@/components/container";
-import { Inter } from "next/font/google";
 import { Metadata } from "next";
-
-import { promises as fs } from "fs";
-import path from "path";
-
-import { compileMDX, MDXRemote } from "next-mdx-remote/rsc";
-import { option } from "motion/react-client";
 import { getSingleBlog } from "@/utils/mdx";
 import { redirect } from "next/navigation";
 
@@ -18,11 +11,12 @@ export const metadata: Metadata = {
 export default async function SingleBlogPage({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }) {
-  const slug = params.slug;
+  // ✅ FIXED: Await params in Next.js 15
+  const { slug } = await params;
 
   const blog = await getSingleBlog(slug);
 
@@ -42,11 +36,13 @@ export default async function SingleBlogPage({
       <Container className="min-h-[200vh] px-10 md:pt-20 md:pb-10">
         <div className="absolute right-0 top-0 h-full w-8 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
         <div className="absolute left-0 top-0 h-full w-8 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
-        <img
-          src={frontmatter.image}
-          alt={frontmatter.title}
-          className="max-h-96 w-full border border-neutral-200 shadow-2xl rounded-2xl max-w-2xl mx-auto mb-20 object-cover"
-        />
+        {frontmatter.image && (
+          <img
+            src={frontmatter.image}
+            alt={frontmatter.title}
+            className="max-h-96 w-full border border-neutral-200 shadow-2xl rounded-2xl max-w-2xl mx-auto mb-20 object-cover"
+          />
+        )}
         <div className="prose mx-auto">{content}</div>
       </Container>
     </div>
