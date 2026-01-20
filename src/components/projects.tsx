@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Project, projects as defaultProjects } from "@/constants/projects";
 import SectionHeading from "./section-heading";
 import { IconType } from "react-icons";
+import { FaGlobe, FaGithub } from "react-icons/fa";
 
 export const Projects = ({
   projects = defaultProjects,
@@ -31,14 +32,14 @@ export const Projects = ({
               ease: "easeInOut",
             }}
             key={project.title}
-            className="group relative h-72 mb-4"
+            className="group relative h-80 mb-4"
           >
-            <Link href={project.href} target="_blank" rel="noopener noreferrer">
+            <div>
               <Image
                 src={project.src}
                 alt={project.title}
-                height={300}
-                width={300}
+                height={540}
+                width={400}
                 className="w-full rounded-xl object-cover transition duration-200 group-hover:scale-[1.02]"
               />
               <h2 className="z-20 mt-2 font-semibold tracking-tight text-neutral-500 dark:text-neutral-400">
@@ -47,7 +48,22 @@ export const Projects = ({
               <p className="mt-2 max-w-xs text-sm text-neutral-500 dark:text-neutral-400 pb-4">
                 {project.description}
               </p>
-            </Link>
+
+              <div className="z-10 gap-1.5 flex text-sm tracking-tight text-neutral-500 dark:text-neutral-400 absolute right-0">
+                {project.githubUrl && (
+                  <Link
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub repository"
+                  >
+                    <div className="flex gap-1">
+                      <FaGithub className="text-xl hover:text-black transition h-4 w-4" />
+                    </div>
+                  </Link>
+                )}
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
