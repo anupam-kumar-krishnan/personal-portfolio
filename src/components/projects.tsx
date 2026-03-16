@@ -78,7 +78,7 @@ const TechBadge = ({
   return (
     <motion.div
       style={{
-        zIndex: hovered ? 10 : 4 - index,
+        zIndex: hovered ? 10 : Math.max(0, Projects.length - index),
         marginLeft: index === 0 ? 0 : "-8px",
       }}
       onMouseEnter={() => setHovered(true)}
