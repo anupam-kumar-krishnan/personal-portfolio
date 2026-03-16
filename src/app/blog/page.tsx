@@ -1,30 +1,16 @@
 import { Container } from "@/components/container";
-import { getBlogs, getSingleBlog, getBlogFrontMatterBySlug } from "@/utils/mdx";
+import { getBlogs } from "@/utils/mdx"; // remove unused imports
 import Link from "next/link";
 import Heading from "@/components/heading";
 import Subheading from "@/components/sub-heading";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const frontmatter = await getBlogFrontMatterBySlug(params.slug);
-
-  if (!frontmatter) {
-    return {
-      title: "All Blogs",
-    };
-  }
-  return {
-    title: frontmatter.title + " Anupam Kumar Krishnan",
-    description: frontmatter.description,
-  };
-}
+export const metadata = {
+  title: "All Blogs | Anupam Kumar Krishnan",
+  description: "A collection of blogs by Anupam Kumar Krishnan.",
+};
 
 export default async function BlogsPage() {
   const allBlogs = await getBlogs();
-  console.log("allBlogs", allBlogs);
 
   const truncate = (str: string, length: number) => {
     return str.length > length ? str.substring(0, length) + "..." : str;
@@ -41,7 +27,7 @@ export default async function BlogsPage() {
           efficient systems with expertise in Frontend Development.
         </Subheading>
         <div className="flex flex-col gap-8 py-10 shadow-section-inset">
-          {allBlogs.map((blog, idx) => (
+          {allBlogs.map((blog) => (
             <Link key={blog.title} href={`/blog/${blog.slug}`}>
               <div className="flex items-center justify-between px-4">
                 <h2 className="text-primary text-base font-bold tracking-tight">
