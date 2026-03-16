@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Container } from "../container";
 import Link from "next/link";
@@ -13,46 +13,42 @@ import {
 
 export const Navbar = () => {
   const navItems = [
-    {
-      title: "About",
-      href: "/about",
-    },
-    {
-      title: "Projects",
-      href: "/projects",
-    },
-    {
-      title: "Blog",
-      href: "/blog",
-    },
-    {
-      title: "Contact",
-      href: "/contact",
-    },
+    { title: "About", href: "/about" },
+    { title: "Projects", href: "/projects" },
+    { title: "Blog", href: "/blog" },
+    { title: "Contact", href: "/contact" },
   ];
 
   const [hovered, setHovered] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const { scrollY } = useScroll();
-
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   const y = useTransform(scrollY, [0, 100], [0, 15]);
   const width = useTransform(scrollY, [0, 100], ["52%", "45%"]);
-  // const opacity = useTransform(scrollY, [0, 100], [1, 0.8]);
-
-  const filter = useMotionTemplate`blur (${useTransform(
-    scrollY,
-    [0, 100],
-    [0, 10]
-  )}px)`;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 20) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
+    setScrolled(latest > 20);
   });
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const dark = saved ? saved === "dark" : prefersDark;
+    setIsDark(dark);
+    document.documentElement.classList.toggle("dark", dark);
+    setMounted(true);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+  };
 
   return (
     <Container>
@@ -62,10 +58,7 @@ export const Navbar = () => {
           width,
           y,
         }}
-        transition={{
-          duration: 0.3,
-          ease: "linear",
-        }}
+        transition={{ duration: 0.3, ease: "linear" }}
         className="fixed backdrop-blur-sm inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between px-3 py-2 rounded-4xl dark:bg-neutral-900"
       >
         <Link href="/">
@@ -78,7 +71,7 @@ export const Navbar = () => {
           />
         </Link>
 
-        <div className="flex items-center">
+        <div className="flex items-center gap-1">
           {navItems.map((item, idx) => (
             <Link
               className="text-sm relative px-2 py-1"
