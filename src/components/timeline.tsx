@@ -21,6 +21,16 @@ export const Timeline = () => {
 
   const data: Data[] = [
     {
+      title: "2026",
+      content: [
+        {
+          title: "Learning & Growing",
+          description:
+            "Learning New technologies daily, making impactfull projets, making design components and sharing everyday on X/Twitter, keeping myself updated in the current AI world",
+        },
+      ],
+    },
+    {
       title: "2025",
       content: [
         {
