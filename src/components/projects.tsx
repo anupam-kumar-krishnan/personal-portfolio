@@ -17,6 +17,7 @@ import {
   SiMongodb,
   SiShadcnui,
   SiReactrouter,
+  SiBetterauth,
 } from "react-icons/si";
 import { LuBrainCircuit } from "react-icons/lu";
 import { IconType } from "react-icons";
@@ -39,6 +40,7 @@ const iconMap: Record<string, IconType> = {
   zustand: RiBearSmileFill,
   tanstack: GiPalmTree,
   postgresql: BiLogoPostgresql,
+  betterauth: SiBetterauth,
 };
 
 const iconColors: Record<string, string> = {
@@ -56,6 +58,7 @@ const iconColors: Record<string, string> = {
   zustand: "#736359",
   tanstack: "#569f10",
   postgresql: "#386d94",
+  betterauth: "#000000",
 };
 
 const TechBadge = ({

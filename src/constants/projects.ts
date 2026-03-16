@@ -54,6 +54,7 @@ export const projects: Project[] = [
       { icon: "tanstack", name: "TanStack" },
       { icon: "shadcn", name: "Shadcn/UI" },
       { icon: "tailwind", name: "Tailwind CSS" },
+      { icon: "betterauth", name: "Better Auth" },
     ],
   },
   {
@@ -65,8 +66,8 @@ export const projects: Project[] = [
       "A Tool to create customizable, shareable code snippets with auto language detection, theming, font options, dark mode, and export as image or SVG.",
     stack: [
       { icon: "react", name: "React JS" },
-      { icon: "tailwind", name: "Tailwind" },
-      { icon: "shadcn", name: "shadcn/ui" },
+      { icon: "tailwind", name: "Tailwind CSS" },
+      { icon: "shadcn", name: "Shadcn/UI" },
       { icon: "zustand", name: "Zustand" },
     ],
   },
