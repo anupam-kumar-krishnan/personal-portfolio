@@ -11,8 +11,17 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-start justify-start">
       <Container className="min-h-screen px-8 md:pt-20 md:pb-10">
-        <div className="absolute right-0 top-0 h-full w-8 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
-        <div className="absolute left-0 top-0 h-full w-8 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
+        <div
+          className="absolute right-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] 
+  bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)]
+  bg-[length:10px_10px] bg-fixed"
+        ></div>
+
+        <div
+          className="absolute left-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] 
+  bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)]
+  bg-[length:10px_10px] bg-fixed"
+        ></div>
         <Heading>Anupam Kumar Krishnan</Heading>
         <Subheading>
           I&apos;m a Software Engineer with a passion for building scalable and
