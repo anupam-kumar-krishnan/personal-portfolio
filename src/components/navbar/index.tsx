@@ -1,11 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Container } from "../container";
 import Link from "next/link";
 import {
   motion,
-  useMotionTemplate,
   useMotionValueEvent,
   useScroll,
   useTransform,
@@ -20,8 +19,6 @@ export const Navbar = () => {
   ];
 
   const [hovered, setHovered] = useState<number | null>(null);
-  const [mounted, setMounted] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState<boolean>(false);
 
@@ -32,24 +29,6 @@ export const Navbar = () => {
     setScrolled(latest > 20);
   });
 
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const dark = saved ? saved === "dark" : prefersDark;
-    setIsDark(dark);
-    document.documentElement.classList.toggle("dark", dark);
-    setMounted(true);
-  }, []);
-
-  const toggleTheme = () => {
-    const next = !isDark;
-    setIsDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
-  };
-
   return (
     <Container>
       <motion.nav
@@ -59,7 +38,7 @@ export const Navbar = () => {
           y,
         }}
         transition={{ duration: 0.3, ease: "linear" }}
-        className="fixed backdrop-blur-sm inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between px-3 py-2 rounded-4xl dark:bg-neutral-900"
+        className="fixed backdrop-blur-sm inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between px-3 py-2 rounded-4xl bg-white/80"
       >
         <Link href="/">
           <Image
@@ -83,7 +62,7 @@ export const Navbar = () => {
               {hovered === idx && (
                 <motion.span
                   layoutId="hovered-span"
-                  className="absolute inset-0 h-full w-full rounded-md bg-neutral-100 dark:bg-neutral-800"
+                  className="absolute inset-0 h-full w-full rounded-md bg-neutral-100"
                 />
               )}
               <span className="relative z-10">{item.title}</span>

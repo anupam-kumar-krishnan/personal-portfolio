@@ -32,10 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${inter.className} relative [--pattern-fg:var(--color-neutral-950)]/5 antialiased bg-neutral-100`}
+        className={`${inter.className} relative [--pattern-fg:var(--color-neutral-950)]/5 antialiased bg-white text-neutral-900`}
       >
         <Toaster position="top-center" />
         <Navbar />
