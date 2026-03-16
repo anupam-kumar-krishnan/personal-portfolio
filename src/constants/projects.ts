@@ -61,7 +61,7 @@ export const projects: Project[] = [
     title: "CodeBits",
     src: "/projects/project-codebits.png",
     githubUrl: "https://github.com/anupam-kumar-krishnan/codebits",
-    liveUrl: "https://codebits.vercel.app",
+    liveUrl: "https://code-snippet-brown.vercel.app/",
     description:
       "A Tool to create customizable, shareable code snippets with auto language detection, theming, font options, dark mode, and export as image or SVG.",
     stack: [
