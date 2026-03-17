@@ -22,10 +22,23 @@ export default function Home() {
   bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)]
   bg-[length:10px_10px] bg-fixed"
         ></div>
+
+        <div className="pt-8 flex justify-start pl-5 pb-5">
+          <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-300 rounded-full px-4 py-1.5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-500 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-transparent" />
+            </span>
+            <span className="text-xs font-medium text-gray-800 whitespace-nowrap">
+              Open To Work
+            </span>
+          </div>
+        </div>
+
         <Heading>Anupam Kumar Krishnan</Heading>
         <Subheading>
-          I&apos;m a Software Engineer with a passion for building scalable and
-          efficient systems with expertise in Frontend Development.
+          Frontend Engineer Who Crafts Fast, Scalable UIs.
+          <br /> Ex-IBM · Ships Components Daily · Writes about the Web.
         </Subheading>
         <Projects projects={projects.slice(0, 3)} />
         <LandingBlogs />
