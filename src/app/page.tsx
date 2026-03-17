@@ -27,6 +27,7 @@ export default function Home() {
           <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-300 rounded-full px-4 py-1.5">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-500 opacity-75" />
+              <span className="absolute inline-flex h-2 w-2 rounded-full bg-green-600" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-transparent" />
             </span>
             <span className="text-xs font-medium text-gray-800 whitespace-nowrap">
