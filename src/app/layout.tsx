@@ -23,7 +23,28 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Anupam Kumar Krishnan",
   description:
-    "Personal Portfolio showcasing skills, minimal and smooth microinteractions as a Software Developer",
+    "Frontend Engineer. Ex-IBM. I ship components daily and write about what I learn.",
+  openGraph: {
+    title: "Anupam Kumar Krishnan",
+    description:
+      "Frontend Engineer. Ex-IBM. I ship components daily and write about what I learn.",
+    url: "https://anupam-k-krishnan.vercel.app",
+    images: [
+      {
+        url: "https://anupam-k-krishnan.vercel.app/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Anupam Kumar Krishnan — Frontend Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Anupam Kumar Krishnan",
+    description:
+      "Frontend Engineer. Ex-IBM. I ship components daily and write about what I learn.",
+    images: ["https://anupam-k-krishnan.vercel.app/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({
