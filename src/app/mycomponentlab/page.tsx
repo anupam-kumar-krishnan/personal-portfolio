@@ -565,13 +565,13 @@ export default function DailyComponents() {
 
       <div className="relative z-10 bg-white min-h-screen text-neutral-900">
         {/* px-16 keeps content clear of the w-8 hash strips on each side */}
-        <div className="max-w-[700px] mx-auto relative px-16 pb-20">
+        <div className="max-w-4xl mx-auto relative px-16 pb-20">
           {/* Hash borders — same pattern as home page, absolute inside relative parent */}
           <div className="absolute left-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-[length:10px_10px] bg-fixed" />
           <div className="absolute right-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-[length:10px_10px] bg-fixed" />
 
           {/* Header */}
-          <div className="pt-14 pb-8">
+          <div className="pt-20 pb-8">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h1 className="text-[26px] sm:text-[30px] font-bold tracking-[-0.8px] leading-[1.15] text-neutral-900">
