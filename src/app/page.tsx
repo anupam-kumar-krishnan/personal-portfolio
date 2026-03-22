@@ -49,7 +49,7 @@ export default function Home() {
             Hire Me
           </a>
           <a
-            href="https://bit.ly/anupam-2026"
+            href="https://drive.google.com/file/d/1GkfHVzKZZ06aSCX2Bjs52gzgK4q_pYqa/view?usp=sharing"
             target="_blank"
             download
             className="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 transition-colors duration-200 text-gray-800 border border-gray-300 rounded-sm px-5 py-2.5 text-sm font-medium"
