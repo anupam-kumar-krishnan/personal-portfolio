@@ -24,6 +24,11 @@ export const Timeline = () => {
       title: "2026",
       content: [
         {
+          title: "Joined Nexly as SDE 1",
+          description:
+            "Joined Nexly as a Software Development Engineer (SDE) 1",
+        },
+        {
           title: "Learning & Growing",
           description:
             "Learning New technologies daily, making impactfull projets, making design components and sharing everyday on X/Twitter, keeping myself updated in the current AI world",
