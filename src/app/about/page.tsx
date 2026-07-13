@@ -17,15 +17,19 @@ export default function AboutPage() {
         <Heading>About Me</Heading>
 
         <Subheading className="max-w-4xl">
-          Software Development Engineer with ~ 3 years of professional
-          experience building scalable SaaS and enterprise software, AI-powered
-          products, and production systems. Experienced in designing modern
-          frontend architectures using React.js, Next.js, TypeScript, Redux,
-          Tailwind CSS, and Node.js, while collaborating with cross-functional
-          teams to deliver high-quality software. <br />
+          Software Development Engineer with ~3 years of professional experience
+          building scalable SaaS and enterprise software, AI-powered products,
+          and production systems. Experienced in designing modern frontend
+          architectures using React.js, Next.js, TypeScript, Redux, Tailwind
+          CSS, and Node.js, while collaborating with cross-functional teams to
+          deliver high-quality software.
           <br />
-          When I'm not coding, you can find me exploring new technologies,
-          making side projects or sharing knowledge through technical writing.
+          <br /> When I'm not coding, I'm usually building side projects like
+          Snappy UI, writing about the latest in AI tools and frontend
+          engineering on my blog, or digging into how new AI models actually
+          change the way we build software. <br />
+          <br /> Currently open to frontend and full-stack roles, especially
+          ones working on AI-driven products.
         </Subheading>
         <SectionHeading className="bg-neutral-100 text-neutral-700 ml-4 mt-5 pt-1 pb-1 pl-0.5 pr-0.5 dark:bg-[#262727] dark:text-white rounded-md">
           Travelling and exploring new places

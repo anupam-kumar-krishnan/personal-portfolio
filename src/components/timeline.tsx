@@ -31,7 +31,7 @@ export const Timeline = () => {
         {
           title: "Learning & Growing",
           description:
-            "Learning New technologies daily, making impactfull projets, making design components and sharing everyday on X/Twitter, keeping myself updated in the current AI world",
+            "Learning New technologies daily, making impactful projects, making design components and sharing everyday on X/Twitter, staying current with what's happening in AI",
         },
       ],
     },
@@ -49,7 +49,8 @@ export const Timeline = () => {
       content: [
         {
           title: "Got Promoted",
-          description: "Promoted to Application Developer",
+          description:
+            "Promoted to Application Developer at IBM India Pvt. Ltd.",
         },
       ],
     },
