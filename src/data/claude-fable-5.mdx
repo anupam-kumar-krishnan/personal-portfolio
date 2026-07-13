@@ -1,0 +1,99 @@
+---
+title: "Claude Fable 5 — What Changed, What's Gone, and What's New"
+description: "Anthropic's Claude Fable 5 is its first publicly available Mythos-class model. Here's what it adds over the previous generation, what got removed or restricted along the way, and what changed in its recent July redeployment."
+image: "/images/blog/fable-5.png"
+date: "2026-07-12"
+---
+
+# 🔮 Claude Fable 5 — What Changed, What's Gone, and What's New
+
+Anthropic's Claude Fable 5 is the company's first Mythos-class model made broadly available — a tier that sits above Opus in capability. It launched on June 9, 2026, got pulled offline three days later under US export controls, and came back on July 1 with new safeguards bolted on.
+That's a lot of change in under a month. Here's a clear breakdown of what's actually new, what's been removed or restricted compared to the previous generation, and what shifted in the recent relaunch.
+
+## 🧠 What's New in Fable 5
+
+Fable 5 is Anthropic's fifth model generation, and it's built specifically for longer, harder, more autonomous work than any Claude model before it.
+
+- **Long-horizon autonomy** — Fable 5 can sustain days-long, complex, asynchronous tasks that previous models couldn't hold together. In one internal test, it completed a codebase-wide migration across a 50-million-line Ruby codebase in a day — work that would otherwise take a team over two months by hand.
+- **Stronger coding performance** — it leads frontier coding evaluations while using meaningfully fewer tokens than prior models, and reviewers found it catches design issues that earlier Opus models missed.
+- **Better knowledge work** — Fable 5 posted the highest score of any model on a finance benchmark for senior-level reasoning, with real gains in document reasoning, chart interpretation, and multi-step analysis.
+- **State-of-the-art vision** — it's now Anthropic's strongest model for tasks that involve interpreting images, charts, and visual documents.
+- **More consistency, less hand-holding** — testers reported needing far less correcting and nudging than with Opus 4.8, since Fable 5 tends to understand intent on the first try.
+
+🔗 [Anthropic: Introducing Claude Fable 5 and Claude Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5) · [Claude Fable product page](https://www.anthropic.com/claude/fable)
+
+## 🚫 What's Removed or Restricted Compared to the Previous Version
+
+The jump in capability came with real trade-offs versus Opus 4.8, especially for anyone integrating Fable 5 through the API.
+
+<b>1. No More Zero Data Retention</b>
+Fable 5 and Mythos 5 are both designated "Covered Models" and are not available
+under zero data retention. Instead, all traffic carries a mandatory 30-day
+retention window, even on first- and third-party surfaces.
+
+<b>2. Safety Classifiers That Can Refuse Requests</b>
+Fable 5 introduces safety classifiers that can decline a request outright. This
+is a structural change for integrations — a refusal now comes back as a
+successful response rather than an error, and it reports which classifier
+triggered it.
+
+<b>3. Automatic Fallback for Flagged Topics</b>
+Many queries touching cybersecurity or biology don't get answered by Fable 5 at
+all — they're automatically routed to Claude Opus 4.8 instead. Developers need
+to configure a fallback setup to handle this gracefully.
+
+<b>4. No Unique Offensive Cybersecurity Capability</b>
+Unlike Mythos 5 (its limited-access sibling), Fable 5 was deliberately launched
+without any unique offensive cybersecurity edge — the strongest safeguards
+Anthropic has ever applied to a model.
+
+<b>5. Higher Pricing</b>
+Fable 5 is priced at $10 per million input tokens and $50 per million output
+tokens — the highest published pricing for any generally available Claude model,
+with a 1.1x multiplier for US-only inference.
+
+<b>6. Distillation Lockout</b>
+Requests flagged as attempts to distill Fable 5's capabilities into a competing
+model automatically fall back to Opus 4.8 instead of being served directly.
+
+🔗 [Claude Platform Docs: Introducing Claude Fable 5 and Claude Mythos 5](https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5)
+
+## 🛡️ What Changed in the Recent Redeployment
+
+Three days after launch, the US government applied export controls to Fable 5 and Mythos 5 after a reported method of bypassing Fable 5's safeguards surfaced — prompting Anthropic to suspend both models entirely rather than risk serving foreign nationals it couldn't verify in real time. Access was restored on July 1, but not unchanged.
+
+<b>1. A Stronger Jailbreak Classifier</b>
+Fable 5 came back with a new classifier that blocks the specific bypass
+technique in more than 99% of cases.
+
+<b>2. More False Positives on Routine Work</b>
+That same classifier flags some ordinary coding and debugging requests more
+often than before — a trade-off Anthropic says it will keep refining.
+
+<b>3. A Shared Industry Jailbreak Framework</b>
+Anthropic is working with Amazon, Microsoft, Google, and other partners on a
+common way to assess and respond to jailbreak severity across the industry.
+
+<b>4. Deeper Government Collaboration</b>
+Anthropic has committed to more pre-release testing, information sharing on
+jailbreaks and misuse, and joint research with the US government going forward.
+
+<b>5. Temporary Usage Caps Instead of Full Restoration</b>
+Rather than reopening Fable 5 to unlimited use immediately, Anthropic capped it
+at up to 50% of weekly usage limits for Pro, Max, Team, and select Enterprise
+plans — a window that's been extended once already, from July 7 to July 12 —
+before shifting to paid usage credits.
+
+🔗 [Anthropic: Redeploying Claude Fable 5](https://www.anthropic.com/news/redeploying-fable-5)
+
+## 🔍 The Big Picture
+
+Fable 5 represents a real jump in what Claude can do unsupervised — longer tasks, better judgment, less correction needed. But it's also the first Claude model built around the idea that some requests should simply be declined rather than answered, and the first to carry mandatory data retention as a condition of that added capability.
+The redeployment saga makes the trade-off explicit: more power came bundled with more oversight, both from Anthropic and from the US government. Whether that balance holds up under real-world use is still playing out in usage caps, classifier tuning, and the industry-wide jailbreak framework taking shape right now.
+
+<i>
+  This article reflects Anthropic's public statements and documentation as of
+  mid-July 2026. Safeguards, pricing, and usage limits are actively being
+  adjusted, so details may continue to evolve — check Anthropic's own
+  announcements for the latest.
+</i>

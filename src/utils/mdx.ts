@@ -35,11 +35,23 @@ export const getBlogs = async () => {
     files.map(async (file) => {
       const slug = file.replace(".mdx", "");
       const frontmatter = await getBlogFrontMatterBySlug(slug);
-      return { slug, ...frontmatter };
-    })
+      return { slug, ...(frontmatter ?? {}) };
+    }),
   );
 
-  return allBlogs;
+  return allBlogs
+    .filter(
+      (
+        blog,
+      ): blog is {
+        slug: string;
+        title: string;
+        description: string;
+        date: string;
+        image: string;
+      } => Boolean(blog.title && blog.date),
+    )
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
 
 export const getBlogFrontMatterBySlug = async (slug: string) => {
