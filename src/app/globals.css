@@ -56,9 +56,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-:root,
-:root.dark,
-.dark {
+:root {
   --radius: 0.625rem;
   --pattern-fg: #e5e5e5;
   --background: oklch(1 0 0);
@@ -96,8 +94,13 @@
   --color-secondary: var(--color-neutral-500);
 }
 
+.dark {
+  --pattern-fg: #393938;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
+    --pattern-fg: #393938;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
@@ -127,7 +130,54 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-color: white !important;
-    color: #0a0a0a !important;
   }
+
+  /* Dark mode explicit overrides to match the provided mock */
+  .dark body {
+    background-color: #0a0a0a;
+    color: #d9d9d9;
+  }
+}
+
+/* Ensure headings are white in dark mode regardless of utility classes */
+.dark h1[class],
+.dark h2[class],
+.dark h3[class],
+.dark h4[class],
+.dark h5[class],
+.dark h6[class] {
+  color: #ffffff !important;
+}
+
+.side-stripe-panel {
+  position: relative;
+  z-index: 20;
+  pointer-events: none;
+  background-color: transparent;
+  background-image: repeating-linear-gradient(
+    315deg,
+    var(--pattern-fg) 0,
+    var(--pattern-fg) 1px,
+    transparent 1px,
+    transparent 50%
+  );
+  background-size: 10px 10px;
+  background-attachment: fixed;
+  border-left: 1px solid var(--pattern-fg);
+  border-right: 1px solid var(--pattern-fg);
+}
+
+.dark .side-stripe-panel {
+  background-color: transparent;
+  background-image: repeating-linear-gradient(
+    315deg,
+    rgba(255, 255, 255, 0.16) 0,
+    rgba(255, 255, 255, 0.16) 1px,
+    transparent 1px,
+    transparent 50%
+  );
+  background-size: 10px 10px;
+  background-attachment: fixed;
+  border-left-color: rgba(255, 255, 255, 0.18);
+  border-right-color: rgba(255, 255, 255, 0.18);
 }

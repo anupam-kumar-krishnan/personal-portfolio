@@ -16,13 +16,13 @@ const SectionHeading = ({
     <h2
       className={cn(
         "relative px-4 text-neutral-400 font-normal w-fit pt-4 text-xs md:text-sm pb-4",
-        className
+        className,
       )}
     >
-      <span className="absolute -top-px -left-px w-1.5 h-1.5 bg-neutral-300 rounded-full"></span>
-      <span className="absolute -top-px -right-px w-1.5 h-1.5 bg-neutral-300 rounded-full"></span>
-      <span className="absolute -bottom-px -left-px w-1.5 h-1.5 bg-neutral-300 rounded-full"></span>
-      <span className="absolute -bottom-px -right-px w-1.5 h-1.5 bg-neutral-300 rounded-full"></span>
+      <span className="absolute -top-px -left-px w-1.5 h-1.5 bg-neutral-300 dark:bg-[#393938] rounded-full"></span>
+      <span className="absolute -top-px -right-px w-1.5 h-1.5 bg-neutral-300 dark:bg-[#393938] rounded-full"></span>
+      <span className="absolute -bottom-px -left-px w-1.5 h-1.5 bg-neutral-300 dark:bg-[#393938] rounded-full"></span>
+      <span className="absolute -bottom-px -right-px w-1.5 h-1.5 bg-neutral-300 dark:bg-[#393938] rounded-full"></span>
       {children.split(" ").map((word, idx) => (
         <motion.span
           initial={{

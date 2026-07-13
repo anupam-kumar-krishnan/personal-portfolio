@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "../components/navbar/index";
 import { Footer } from "@/components/navbar/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
 
 const inter = Inter({
@@ -56,12 +57,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${inter.className} relative [--pattern-fg:var(--color-neutral-950)]/5 antialiased bg-white text-neutral-900`}
+        className={`${inter.className} relative [--pattern-fg:var(--color-neutral-950)]/5 antialiased`}
       >
-        <Toaster position="top-center" />
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Toaster position="top-center" />
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

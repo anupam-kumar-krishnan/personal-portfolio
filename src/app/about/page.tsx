@@ -12,8 +12,8 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex items-start justify-start">
       <Container className="min-h-[200vh] p-8 md:pt-20 md:pb-10">
-        <div className="absolute right-0 top-0 h-full w-8 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
-        <div className="absolute left-0 top-0 h-full w-8 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
+        <div className="absolute right-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-[length:10px_10px] bg-fixed" />
+        <div className="absolute left-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-[length:10px_10px] bg-fixed" />
         <Heading>About Me</Heading>
         <Subheading>
           I&apos;m a passionate Software Engineer dedicated to crafting elegant
@@ -22,7 +22,7 @@ export default function AboutPage() {
           not coding, you can find me exploring new technologies, making side
           projects or sharing knowledge through technical writing.
         </Subheading>
-        <SectionHeading className="bg-neutral-100 text-neutral-700 ml-4 mt-5 pt-1 pb-1 pl-0.5 pr-0.5">
+        <SectionHeading className="bg-neutral-100 text-neutral-700 ml-4 mt-5 pt-1 pb-1 pl-0.5 pr-0.5 dark:bg-[#262727] dark:text-white rounded-md">
           Travelling and exploring new places
         </SectionHeading>
         <Collage />

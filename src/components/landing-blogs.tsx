@@ -13,7 +13,7 @@ export const LandingBlogs = async () => {
   return (
     <div className="">
       <SectionHeading
-        className="w-fit ml-5 pt-0.5 pb-0.5 mb-5 pl-0.5 pr-0.5 bg-neutral-100 text-neutral-700"
+        className="w-fit ml-5 pt-0.5 pb-0.5 mb-5 pl-0.5 pr-0.5 bg-neutral-100 text-neutral-700 dark:bg-[#262727] dark:text-white rounded-md"
         delay={0.4}
       >
         I love writing things down
