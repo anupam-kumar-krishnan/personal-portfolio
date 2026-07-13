@@ -222,7 +222,7 @@ export const Work = async () => {
         }
         delay={0.4}
       >
-        Worked at Reputed Firm
+        Where I've Worked
       </SectionHeading>
 
       <div className="flex flex-col gap-2 px-4">

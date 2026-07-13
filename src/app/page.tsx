@@ -15,13 +15,11 @@ export default function Home() {
           bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)]
           bg-[length:10px_10px] bg-fixed"
         />
-
         <div
           className="absolute left-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] 
           bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)]
           bg-[length:10px_10px] bg-fixed"
         />
-
         <div className="pt-8 flex justify-start pl-5 pb-5 gap-3">
           <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-300 rounded-full px-4 py-1.5">
             <span className="relative flex h-2 w-2">
@@ -34,13 +32,11 @@ export default function Home() {
             </span>
           </div>
         </div>
-
         <Heading>Anupam Kumar Krishnan</Heading>
         <Subheading>
-          Frontend Engineer Who Crafts Fast, Scalable UIs.
+          Software Engineer Who Crafts Fast, Scalable UIs.
           <br /> Ex-IBM · Ships Components Daily · Writes about the Web.
         </Subheading>
-
         <div className="flex gap-3 pl-5 pt-6 pb-2">
           <a
             href="mailto:anupamk.krishnan@gmail.com"
@@ -57,7 +53,6 @@ export default function Home() {
             View Resume
           </a>
         </div>
-
         <Projects projects={projects.slice(0, 3)} />
         <LandingBlogs />
         <Work />

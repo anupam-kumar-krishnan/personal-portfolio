@@ -15,12 +15,17 @@ export default function AboutPage() {
         <div className="absolute right-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-[length:10px_10px] bg-fixed" />
         <div className="absolute left-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-[length:10px_10px] bg-fixed" />
         <Heading>About Me</Heading>
-        <Subheading>
-          I&apos;m a passionate Software Engineer dedicated to crafting elegant
-          solutions for complex problems. With exertise in frontend, I enjoy
-          building user-centric applications that make a difference. When I'm
-          not coding, you can find me exploring new technologies, making side
-          projects or sharing knowledge through technical writing.
+
+        <Subheading className="max-w-4xl">
+          Software Development Engineer with ~ 3 years of professional
+          experience building scalable SaaS and enterprise software, AI-powered
+          products, and production systems. Experienced in designing modern
+          frontend architectures using React.js, Next.js, TypeScript, Redux,
+          Tailwind CSS, and Node.js, while collaborating with cross-functional
+          teams to deliver high-quality software. <br />
+          <br />
+          When I'm not coding, you can find me exploring new technologies,
+          making side projects or sharing knowledge through technical writing.
         </Subheading>
         <SectionHeading className="bg-neutral-100 text-neutral-700 ml-4 mt-5 pt-1 pb-1 pl-0.5 pr-0.5 dark:bg-[#262727] dark:text-white rounded-md">
           Travelling and exploring new places
