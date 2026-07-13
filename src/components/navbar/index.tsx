@@ -98,7 +98,7 @@ export const Navbar = () => {
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
           >
             <div className="flex items-center gap-2">
-              <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800" />
+              {/* <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800" /> */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="p-2 rounded-md text-neutral-700 hover:bg-neutral-100"
