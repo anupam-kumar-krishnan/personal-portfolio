@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 
 type FrontMatter = {
   title: string;
@@ -18,7 +19,12 @@ export const getSingleBlog = async (slug: string) => {
 
     const { content, frontmatter } = await compileMDX<{ title: string }>({
       source: singleBlog,
-      options: { parseFrontmatter: true },
+      options: {
+        parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
+      },
     });
 
     return { content, frontmatter };
@@ -61,7 +67,12 @@ export const getBlogFrontMatterBySlug = async (slug: string) => {
 
     const { frontmatter } = await compileMDX<FrontMatter>({
       source: singleBlog,
-      options: { parseFrontmatter: true },
+      options: {
+        parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
+      },
     });
 
     return frontmatter;
