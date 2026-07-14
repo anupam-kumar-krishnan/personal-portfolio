@@ -5,6 +5,7 @@ import { Heading } from "@/components/heading";
 import { Subheading } from "@/components/sub-heading";
 import { projects } from "@/constants/projects";
 import { Work } from "@/components/work";
+import Github from "@/components/ui/github";
 
 export default function Home() {
   return (
@@ -53,6 +54,8 @@ export default function Home() {
             View Resume
           </a>
         </div>
+        <br />
+        <Github />
         <Projects projects={projects.slice(0, 3)} />
         <LandingBlogs />
         <Work />

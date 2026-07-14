@@ -13,6 +13,7 @@ import {
   SiResend,
 } from "react-icons/si";
 import { RiNextjsLine } from "react-icons/ri";
+import { LinkPreview } from "./ui/link-preview";
 
 const techStack = [
   {
@@ -254,28 +255,24 @@ export const Work = async () => {
         </div>
         <p className="text-secondary max-w-xl text-sm md:text-sm sm:pb-3">
           Built{" "}
-          <Link
-            href="https://www.architechiq.com/"
-            target="_blank"
-            rel="noreferrer"
+          <LinkPreview
+            url="https://www.architechiq.com/"
             className="underline decoration-neutral-400 underline-offset-2 transition-colors hover:text-primary"
           >
             ArchitechIQ
-          </Link>
+          </LinkPreview>
           , an AI-assisted System Design platform with an interactive design
           canvas, live AI interview scenarios, and automated performance
           scorecards to evaluate candidate solutions.
         </p>
         <p className="text-secondary max-w-xl text-sm md:text-sm sm:pb-3">
           Engineered an AI-powered{" "}
-          <Link
-            target="_blank"
-            rel="noreferrer"
+          <LinkPreview
+            url="https://www.resumebanao.com/"
             className="underline decoration-neutral-400 underline-offset-2 transition-colors hover:text-primary"
-            href="https://www.resumebanao.com/"
           >
             Resume Builder SaaS
-          </Link>{" "}
+          </LinkPreview>{" "}
           featuring secure authentication, REST API integration, ATS resume
           analysis, Razorpay payment integration, and AI-driven resume
           enhancement.
