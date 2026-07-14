@@ -113,7 +113,6 @@ const TechBadge = ({
     </span>
   </div>
 );
-
 const techStack2 = [
   {
     icon: <FaReact className="w-4 h-4" />,
@@ -280,7 +279,7 @@ export const Work = async () => {
         <div className="pb-5">
           <div className="flex items-center pl-2">
             {techStack2.map((tech, i) => (
-              <TechBadge2 key={i} {...tech} />
+              <TechBadge key={i} {...tech} />
             ))}
           </div>
         </div>

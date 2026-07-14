@@ -6,6 +6,7 @@ import { Subheading } from "@/components/sub-heading";
 import { projects } from "@/constants/projects";
 import { Work } from "@/components/work";
 import Github from "@/components/ui/github";
+import { SpotlightLogo } from "@/components/spotlight-logo";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
           bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)]
           bg-[length:10px_10px] bg-fixed"
         />
+        {/* <SpotlightLogo /> */}
         <div className="pt-8 flex justify-start pl-5 pb-5 gap-3">
           <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-300 rounded-full px-4 py-1.5">
             <span className="relative flex h-2 w-2">
