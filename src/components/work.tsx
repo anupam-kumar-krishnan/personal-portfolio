@@ -89,7 +89,11 @@ const TechBadge = ({
       transition-all duration-300 ease-out
       hover:w-auto hover:rounded-full hover:px-2.5 hover:z-10
       hover:shadow-md
-      z-0 hover:scale-105
+      hover:scale-105
+      active:w-auto active:rounded-full active:px-2.5 active:z-10
+      active:shadow-md active:scale-105
+      focus-within:w-auto focus-within:rounded-full focus-within:px-2.5 focus-within:z-10
+      focus-within:shadow-md focus-within:scale-105
     `}
     style={{ minWidth: "2rem" }}
   >
@@ -100,6 +104,8 @@ const TechBadge = ({
         max-w-0 overflow-hidden whitespace-nowrap
         transition-all duration-300 ease-out
         group-hover:max-w-[80px] group-hover:ml-1.5
+        active:max-w-[80px] active:ml-1.5
+        focus-within:max-w-[80px] focus-within:ml-1.5
       `}
     >
       {label}
@@ -189,7 +195,11 @@ const TechBadge2 = ({
       transition-all duration-300 ease-out
       hover:w-auto hover:rounded-full hover:px-2.5 hover:z-10
       hover:shadow-md
-      z-0 hover:scale-105
+      hover:scale-105
+      active:w-auto active:rounded-full active:px-2.5 active:z-10
+      active:shadow-md active:scale-105
+      focus-within:w-auto focus-within:rounded-full focus-within:px-2.5 focus-within:z-10
+      focus-within:shadow-md focus-within:scale-105
     `}
     style={{ minWidth: "2rem" }}
   >
@@ -200,6 +210,8 @@ const TechBadge2 = ({
         max-w-0 overflow-hidden whitespace-nowrap
         transition-all duration-300 ease-out
         group-hover:max-w-[80px] group-hover:ml-1.5
+        active:max-w-[80px] active:ml-1.5
+        focus-within:max-w-[80px] focus-within:ml-1.5
       `}
     >
       {label}
