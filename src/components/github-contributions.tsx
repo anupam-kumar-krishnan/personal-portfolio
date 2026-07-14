@@ -1,6 +1,6 @@
 "use client";
 
-import { use } from "react";
+import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
 
 import { cn } from "@/lib/utils";
@@ -26,11 +26,74 @@ export function GitHubContributions({
   githubProfileUrl,
   className,
 }: {
-  contributions: Promise<Activity[]>;
+  contributions: Activity[];
   githubProfileUrl: string;
   className?: string;
 }) {
-  const data = use(contributions);
+  const [data, setData] = useState<Activity[]>(contributions ?? []);
+  const [loading, setLoading] = useState(data.length === 0);
+
+  useEffect(() => {
+    let mounted = true;
+
+    const username = githubProfileUrl.split("/").filter(Boolean).pop() || "";
+
+    if (!username) return;
+
+    // If we already have data, skip fetch
+    if (data.length > 0) {
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+
+    fetch(`/api/github-contributions?user=${encodeURIComponent(username)}`)
+      .then((res) => res.json())
+      .then((json) => {
+        if (!mounted) return;
+        if (Array.isArray(json?.contributions)) {
+          setData(json.contributions);
+        }
+      })
+      .catch(() => {
+        /* ignore */
+      })
+      .finally(() => {
+        if (!mounted) return;
+        setLoading(false);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, [githubProfileUrl]);
+
+  if (loading && data.length === 0) {
+    return (
+      <div className="flex h-40.5 w-full items-center justify-center">
+        <Spinner className="text-muted-foreground" />
+      </div>
+    );
+  }
+
+  if (!data || data.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-6">
+        <div className="text-sm text-muted-foreground mb-2">
+          No contributions available
+        </div>
+        <a
+          className="text-primary underline"
+          href={githubProfileUrl}
+          target="_blank"
+          rel="noopener"
+        >
+          View profile on GitHub
+        </a>
+      </div>
+    );
+  }
 
   return (
     <TooltipProvider>
