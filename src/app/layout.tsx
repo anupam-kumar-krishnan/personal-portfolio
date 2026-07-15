@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "../components/navbar/index";
 import { Footer } from "@/components/navbar/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AppleHelloSplash } from "@/components/apple-hello-splash";
 import { Toaster } from "sonner";
 
 const inter = Inter({
@@ -61,6 +62,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <Toaster position="top-center" />
+          <AppleHelloSplash />
           <Navbar />
           {children}
           <Footer />
