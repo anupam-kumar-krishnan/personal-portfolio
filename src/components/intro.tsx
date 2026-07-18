@@ -98,9 +98,9 @@ export default function Home() {
                 </span>
               </span>
 
-              <div>
+              <div className="min-w-0">
                 <p className=" text-neutral-500">Email</p>
-                <p className=" text-neutral-900 dark:text-neutral-400">
+                <p className=" text-neutral-900 dark:text-neutral-400 break-all">
                   anupamk.krishnan@gmail.com
                 </p>
               </div>
