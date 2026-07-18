@@ -17,18 +17,18 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
-                <span className="grid place-items-center rounded-xl border border-neutral-200 p-1 dark:border-neutral-800">
-                  <span className="grid h-10 w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
                     <Briefcase
-                      className="h-5 w-5 text-neutral-700"
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
                     />
                   </span>
                 </span>
               </span>
               <div>
-                <p className=" text-neutral-500">Experience</p>
-                <p className=" text-neutral-900 dark:text-white">
+                <p className="max-sm:text-xs text-neutral-500">Experience</p>
+                <p className="max-sm:text-xs text-neutral-900 dark:text-white">
                   3 Years (IBM • Nexly)
                 </p>
               </div>
@@ -37,18 +37,18 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
-                <span className="grid place-items-center rounded-xl border border-neutral-200 p-1 dark:border-neutral-800">
-                  <span className="grid h-10 w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
                     <MapPin
-                      className="h-5 w-5 text-neutral-700"
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
                     />
                   </span>
                 </span>
               </span>
               <div>
-                <p className=" text-neutral-500">Location</p>
-                <p className=" text-neutral-900 dark:text-white">
+                <p className="max-sm:text-xs text-neutral-500">Location</p>
+                <p className="max-sm:text-xs text-neutral-900 dark:text-white">
                   Pune, Maharashtra
                 </p>
               </div>
@@ -56,10 +56,10 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
-                <span className="grid place-items-center rounded-xl border border-neutral-200 p-1 dark:border-neutral-800">
-                  <span className="grid h-10 w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
                     <CalendarDays
-                      className="h-5 w-5 text-neutral-700"
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
                     />
                   </span>
@@ -67,8 +67,8 @@ export default function Home() {
               </span>
 
               <div>
-                <p className="text-neutral-500">Availability</p>
-                <p className="text-neutral-900 dark:text-neutral-400">
+                <p className="max-sm:text-xs text-neutral-500">Availability</p>
+                <p className="max-sm:text-xs text-neutral-900 dark:text-neutral-400">
                   Available to Join Immediately
                 </p>
               </div>
@@ -78,18 +78,18 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
-                <span className="grid place-items-center rounded-xl border border-neutral-200 p-1 dark:border-neutral-800">
-                  <span className="grid h-10 w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
                     <Clock3
-                      className="h-5 w-5 text-neutral-700"
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
                     />
                   </span>
                 </span>
               </span>
               <div>
-                <p className=" text-neutral-500">Local time</p>
-                <p className=" text-neutral-900 dark:text-white">
+                <p className="max-sm:text-xs text-neutral-500">Local time</p>
+                <p className="max-sm:text-xs text-neutral-900 dark:text-white">
                   <LocalTime />
                 </p>
               </div>
@@ -97,10 +97,10 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
-                <span className="grid place-items-center rounded-xl border border-neutral-200 p-1 dark:border-neutral-800">
-                  <span className="grid h-10 w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
                     <Mail
-                      className="h-5 w-5 text-neutral-700"
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
                     />
                   </span>
@@ -108,8 +108,8 @@ export default function Home() {
               </span>
 
               <div className="min-w-0">
-                <p className=" text-neutral-500">Email</p>
-                <p className=" text-neutral-900 dark:text-neutral-400 break-all">
+                <p className="max-sm:text-xs text-neutral-500">Email</p>
+                <p className="max-sm:text-xs text-neutral-900 dark:text-neutral-400 break-all">
                   <a
                     href="mailto:anupamk.krishnan@gmail.com"
                     className="text-neutral-900 dark:text-neutral-400 break-all hover:underline"
@@ -123,10 +123,10 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
-                <span className="grid place-items-center rounded-xl border border-neutral-200 p-1 dark:border-neutral-800">
-                  <span className="grid h-10 w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
                     <FileUser
-                      className="h-5 w-5 text-neutral-700"
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
                     />
                   </span>
@@ -134,8 +134,8 @@ export default function Home() {
               </span>
 
               <div className="min-w-0">
-                <p className=" text-neutral-500">Resume</p>
-                <p className=" text-neutral-900 dark:text-neutral-400 break-all">
+                <p className="max-sm:text-xs text-neutral-500">Resume</p>
+                <p className="max-sm:text-xs text-neutral-900 dark:text-neutral-400 break-all">
                   <a
                     href="/resume/Anupam-Kr-Krishnan-3-YOE.pdf"
                     target="_blank"
