@@ -1,5 +1,12 @@
 import { LocalTime } from "@/components/local-time";
-import { Briefcase, MapPin, Clock3, Mail, Mars } from "lucide-react";
+import {
+  Briefcase,
+  MapPin,
+  Clock3,
+  Mail,
+  CalendarDays,
+  FileUser,
+} from "lucide-react";
 
 export default function Home() {
   return (
@@ -20,10 +27,10 @@ export default function Home() {
                 </span>
               </span>
               <div>
-                <p className=" text-neutral-500">
-                  Software Development Engineer
+                <p className=" text-neutral-500">Experience</p>
+                <p className=" text-neutral-900 dark:text-white">
+                  3 Years (IBM • Nexly)
                 </p>
-                <p className=" text-neutral-900 dark:text-white">Prev @Nexly</p>
               </div>
             </div>
 
@@ -51,7 +58,7 @@ export default function Home() {
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
                 <span className="grid place-items-center rounded-xl border border-neutral-200 p-1 dark:border-neutral-800">
                   <span className="grid h-10 w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
-                    <Mars
+                    <CalendarDays
                       className="h-5 w-5 text-neutral-700"
                       strokeWidth={1.5}
                     />
@@ -60,8 +67,10 @@ export default function Home() {
               </span>
 
               <div>
-                <p className="text-neutral-500">Pronouns</p>
-                <p className="text-neutral-900 dark:text-neutral-400">he/him</p>
+                <p className="text-neutral-500">Availability</p>
+                <p className="text-neutral-900 dark:text-neutral-400">
+                  Available to Join Immediately
+                </p>
               </div>
             </div>
           </div>
@@ -101,7 +110,40 @@ export default function Home() {
               <div className="min-w-0">
                 <p className=" text-neutral-500">Email</p>
                 <p className=" text-neutral-900 dark:text-neutral-400 break-all">
-                  anupamk.krishnan@gmail.com
+                  <a
+                    href="mailto:anupamk.krishnan@gmail.com"
+                    className="text-neutral-900 dark:text-neutral-400 break-all hover:underline"
+                  >
+                    anupamk.krishnan@gmail.com
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="relative">
+                <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
+                <span className="grid place-items-center rounded-xl border border-neutral-200 p-1 dark:border-neutral-800">
+                  <span className="grid h-10 w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                    <FileUser
+                      className="h-5 w-5 text-neutral-700"
+                      strokeWidth={1.5}
+                    />
+                  </span>
+                </span>
+              </span>
+
+              <div className="min-w-0">
+                <p className=" text-neutral-500">Resume</p>
+                <p className=" text-neutral-900 dark:text-neutral-400 break-all">
+                  <a
+                    href="/resume/Anupam-Kr-Krishnan-3-YOE.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-900 dark:text-neutral-400 hover:underline"
+                  >
+                    Anupam Kr. Krishnan.pdf
+                  </a>
                 </p>
               </div>
             </div>

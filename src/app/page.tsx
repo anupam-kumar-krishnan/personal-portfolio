@@ -8,6 +8,7 @@ import { Work } from "@/components/work";
 import Github from "@/components/ui/github";
 import { SpotlightLogo } from "@/components/spotlight-logo";
 import Intro from "@/components/intro";
+import SocialLinks from "@/components/social";
 
 export default function Home() {
   return (
@@ -38,10 +39,10 @@ export default function Home() {
         </div>
         <Heading>Anupam Kumar Krishnan</Heading>
         <Subheading>
-          Software Engineer Who Crafts Fast, Scalable UIs.
-          <br /> Ex-IBM · Ships Components Daily · Writes about the Web.
+          Frontend Engineer with 3 Years of Experience building <br /> scalable
+          React, Next.js and TypeScript applications.
         </Subheading>
-        <div className="flex flex-wrap gap-3 pl-5 pt-6 pb-2">
+        {/* <div className="flex flex-wrap gap-3 pl-5 pt-6 pb-2">
           <a
             href="mailto:anupamk.krishnan@gmail.com"
             className="inline-flex items-center gap-2 bg-primary hover:bg-gray-800 transition-colors duration-200 text-white rounded-sm px-5 py-2.5 text-sm font-medium"
@@ -56,9 +57,10 @@ export default function Home() {
           >
             View Resume
           </a>
-        </div>
+        </div> */}
 
         <Intro />
+        <SocialLinks />
         <Github />
         <Projects projects={projects.slice(0, 3)} />
         <LandingBlogs />
