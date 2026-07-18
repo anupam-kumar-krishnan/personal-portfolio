@@ -47,7 +47,7 @@ export const projects: Project[] = [
     src: "/projects/project-reqon.png",
     githubUrl: "https://github.com/anupam-kumar-krishnan/reqon",
     description:
-      "An API Testing Tool which manage REST APIs and WebSocket connections efficiently.",
+      "API Testing Tool which manage REST APIs and WebSocket connections efficiently.",
     stack: [
       { icon: "nextjs", name: "Next JS" },
       { icon: "postgresql", name: "PostgreSQL" },

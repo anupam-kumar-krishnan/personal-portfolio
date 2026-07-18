@@ -133,7 +133,7 @@ export const Projects = ({
         delay={0.2}
         className="bg-neutral-100 w-fit mt-10 ml-4 text-center pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-neutral-700 text-sm sm:text:sm dark:bg-[#262727] dark:text-white rounded-md"
       >
-        What I've built
+        &nbsp;What I've built
       </SectionHeading>
       <div className="grid grid-cols-1 gap-15 py-8 md:grid-cols-3 px-4">
         {projects.map((project, idx) => (
@@ -142,7 +142,7 @@ export const Projects = ({
             whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 0.3, delay: idx * 0.1, ease: "easeInOut" }}
             key={project.title}
-            className="group relative h-80 mb-4"
+            className="group relative h-80"
           >
             <div>
               <Image

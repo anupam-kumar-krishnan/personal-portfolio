@@ -9,6 +9,7 @@ import Github from "@/components/ui/github";
 import { SpotlightLogo } from "@/components/spotlight-logo";
 import Intro from "@/components/intro";
 import SocialLinks from "@/components/social";
+import Stack from "@/components/stack";
 
 export default function Home() {
   return (
@@ -63,8 +64,9 @@ export default function Home() {
         <SocialLinks />
         <Github />
         <Projects projects={projects.slice(0, 3)} />
-        <LandingBlogs />
         <Work />
+        <Stack />
+        <LandingBlogs />
       </Container>
     </div>
   );

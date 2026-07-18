@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import SectionHeading from "@/components/section-heading";
 
@@ -18,6 +18,11 @@ const socials = [
     href: "https://x.com/anupamkkrishnan",
     icon: FaXTwitter,
   },
+  {
+    name: "Portfolio",
+    href: "https://anupam-k-krishnan.vercel.app",
+    icon: FaGlobe,
+  },
 ];
 
 export default function SocialLinks() {
@@ -27,7 +32,7 @@ export default function SocialLinks() {
         delay={0.2}
         className="bg-neutral-100 w-fit mt-10 ml-4 text-center pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-neutral-700 text-sm sm:text:sm dark:bg-[#262727] dark:text-white rounded-md"
       >
-        Social Links
+        &nbsp;Come say hi
       </SectionHeading>
       <div className="mt-8 ml-5 flex flex-wrap items-center justify-start gap-3">
         {socials.map(({ name, href, icon: Icon }) => (

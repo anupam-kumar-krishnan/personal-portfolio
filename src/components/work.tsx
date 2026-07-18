@@ -227,7 +227,7 @@ export const Work = async () => {
   };
 
   return (
-    <div className="pt-4 border-y border-neutral-100 shadow-section-inset">
+    <div className="pt-4">
       <SectionHeading
         className={
           "w-fit ml-5 mb-5 bg-neutral-100 text-neutral-700 dark:bg-[#262727] dark:text-white rounded-md px-3 py-1"

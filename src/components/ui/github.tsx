@@ -15,7 +15,7 @@ export default async function GitHubContributionsDemo() {
         delay={0.2}
         className="bg-neutral-100 w-fit mt-10 ml-4 text-center pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-neutral-700 text-sm sm:text:sm dark:bg-[#262727] dark:text-white rounded-md"
       >
-        GitHub Activity
+        &nbsp;Where the commits happen
       </SectionHeading>
       <GitHubContributions
         contributions={contributions}
