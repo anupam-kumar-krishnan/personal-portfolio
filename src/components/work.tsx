@@ -243,7 +243,7 @@ export const Work = async () => {
             Nexly Pvt. Ltd.
           </h2>
           <p className="text-secondary text-sm md:text-sm absolute left-50">
-            Apr 2026 - June 2026
+            Jan 2026 - Jun 2026
           </p>
           <p className="text-secondary text-sm md:text-sm">
             {/* <img
