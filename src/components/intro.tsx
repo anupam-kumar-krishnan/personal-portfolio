@@ -137,7 +137,7 @@ export default function Home() {
                 <p className="max-sm:text-xs text-neutral-500">Resume</p>
                 <p className="max-sm:text-xs text-neutral-900 dark:text-neutral-400 break-all">
                   <a
-                    href="/resume/Anupam-Kr.-Krishnan-3-YOE.pdf"
+                    href="/resume/Anupam-Kr-Krishnan-3-YOE.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-900 dark:text-neutral-400 hover:underline"
