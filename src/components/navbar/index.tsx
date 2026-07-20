@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { Container } from "../container";
 import Link from "next/link";
@@ -32,6 +32,20 @@ export const Navbar = () => {
     setScrolled(latest > 20);
   });
 
+  // Ref to reuse a single Audio instance instead of creating a new one every click
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const playClickSound = () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio("/sound/switch.mp3"); // <-- update path to your file
+    }
+    audioRef.current.currentTime = 0; // reset so rapid clicks still replay from start
+    audioRef.current.play().catch((err) => {
+      // Autoplay/interaction errors land here silently — safe to ignore
+      console.warn("Sound playback failed:", err);
+    });
+  };
+
   return (
     <Container className="pt-20 md:pt-0">
       {/* Desktop nav - hidden on mobile */}
@@ -62,6 +76,7 @@ export const Navbar = () => {
               key={idx}
               onMouseEnter={() => setHovered(idx)}
               onMouseLeave={() => setHovered(null)}
+              onClick={playClickSound}
             >
               {hovered === idx && (
                 <motion.span
@@ -153,7 +168,10 @@ export const Navbar = () => {
               <Link
                 key={idx}
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  playClickSound();
+                  setMenuOpen(false);
+                }}
                 className="text-sm px-2 py-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-200"
               >
                 {item.title}

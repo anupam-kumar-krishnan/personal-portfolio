@@ -1,7 +1,6 @@
 import {
   SiTypescript,
   SiJavascript,
-  SiPython,
   SiReact,
   SiNextdotjs,
   SiTailwindcss,
@@ -22,7 +21,6 @@ import {
   SiGithub,
   SiDocker,
   SiVercel,
-  SiFigma,
   SiJira,
   SiPostman,
   SiCplusplus,
@@ -50,11 +48,68 @@ function PostHogLogo({ className }: { className?: string }) {
   );
 }
 
+// The official Figma mark is five filled shapes in distinct brand colors
+// (not an outline), so — like PostHog and Python — render the real
+// multicolor glyph and grayscale-toggle it instead of a currentColor swap.
+function FigmaLogo({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 38 57"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="#1ABCFE"
+        d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z"
+      />
+      <path
+        fill="#0ACF83"
+        d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z"
+      />
+      <path
+        fill="#FF7262"
+        d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z"
+      />
+      <path
+        fill="#F24E1E"
+        d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z"
+      />
+      <path
+        fill="#A259FF"
+        d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z"
+      />
+    </svg>
+  );
+}
+
+// The official Python mark is two interlocking snakes in distinct blue and
+// yellow, so — like PostHog and Figma — render the real two-tone glyph and
+// grayscale-toggle it instead of a currentColor swap.
+function PythonLogo({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="#3776AB"
+        d="M11.914 0c-.926 0-1.813.08-2.594.222-2.294.412-2.712 1.271-2.712 2.856v2.093h5.424v.687H8.6H4.598c-1.595 0-2.99.958-3.427 2.782-.502 2.09-.524 3.393 0 5.574.39 1.622 1.32 2.782 2.916 2.782h1.887v-2.508c0-1.813 1.568-3.415 3.427-3.415h5.417c1.526 0 2.744-1.257 2.744-2.79V3.078c0-1.489-1.255-2.606-2.744-2.856C13.888.078 12.9 0 11.914 0zM9.117 1.734c.582 0 1.058.483 1.058 1.078 0 .594-.476 1.073-1.058 1.073-.584 0-1.058-.479-1.058-1.073 0-.595.474-1.078 1.058-1.078z"
+      />
+      <path
+        fill="#FFD43B"
+        d="M18.096 6.858v2.437c0 1.892-1.603 3.484-3.427 3.484H9.252c-1.503 0-2.744 1.286-2.744 2.79v5.226c0 1.489 1.294 2.365 2.744 2.79 1.734.508 3.397.6 5.417 0 1.365-.395 2.744-1.19 2.744-2.79v-2.093h-5.417v-.687h5.417 2.712c1.595 0 2.19-1.113 2.744-2.782.573-1.72.548-3.375 0-5.574-.393-1.582-1.147-2.782-2.744-2.782h-2.02zm-3.05 13.42c.584 0 1.058.479 1.058 1.073 0 .595-.474 1.078-1.058 1.078-.582 0-1.058-.483-1.058-1.078 0-.594.476-1.073 1.058-1.073z"
+      />
+    </svg>
+  );
+}
+
 type Tech = {
   name: string;
   icon: ReactNode;
   color?: string; // brand hex, revealed on hover (single-color icons)
   multicolor?: boolean; // true = icon is already full color, just toggle grayscale
+  alwaysColor?: boolean; // true = render permanently in brand color, no gray/hover toggle (small brand marks that only read correctly in their real color)
 };
 
 type Category = {
@@ -87,8 +142,8 @@ const categories: Category[] = [
       },
       {
         name: "Python",
-        icon: <SiPython className={iconClass} />,
-        color: "#3776AB",
+        icon: <PythonLogo className={iconClass} />,
+        multicolor: true,
       },
     ],
   },
@@ -135,7 +190,8 @@ const categories: Category[] = [
       {
         name: "PostgreSQL",
         icon: <SiPostgresql className={iconClass} />,
-        color: "#4169E1",
+        color: "#336791",
+        alwaysColor: true,
       },
       {
         name: "MongoDB",
@@ -198,8 +254,8 @@ const categories: Category[] = [
     items: [
       {
         name: "Figma",
-        icon: <SiFigma className={iconClass} />,
-        color: "#F24E1E",
+        icon: <FigmaLogo className={iconClass} />,
+        multicolor: true,
       },
     ],
   },
@@ -233,15 +289,14 @@ export default function TechStack() {
       {categories.map((category) => (
         <div
           key={category.number}
-          className="grid items-stretch gap-6 py-5"
-          style={{ gridTemplateColumns: "140px 1fr" }}
+          className="grid grid-cols-1 items-stretch gap-2 py-5 sm:gap-6 sm:[grid-template-columns:140px_1fr]"
         >
-          <div className="flex items-baseline gap-2 self-stretch border-r border-neutral-100 pr-4 text-sm text-neutral-400 dark:border-neutral-800 dark:text-neutral-500">
+          <div className="flex items-baseline gap-2 self-stretch border-neutral-100 text-sm text-neutral-400 dark:border-neutral-800 dark:text-neutral-500 sm:border-r sm:pr-4">
             <span className="tabular-nums">{category.number}</span>
             <span>{category.label}</span>
           </div>
 
-          <div className="flex flex-wrap gap-2 pl-2">
+          <div className="flex flex-wrap gap-2 sm:pl-2">
             {category.items.map((item) => (
               <span
                 key={item.name}
@@ -254,6 +309,8 @@ export default function TechStack() {
                   <span className="grayscale transition-all duration-200 group-hover:grayscale-0">
                     {item.icon}
                   </span>
+                ) : item.alwaysColor ? (
+                  <span className="text-[var(--brand)]">{item.icon}</span>
                 ) : (
                   <span className="text-neutral-600 transition-colors duration-200 group-hover:text-[var(--brand)] dark:text-neutral-300">
                     {item.icon}
