@@ -16,8 +16,8 @@
     rgba(255, 255, 255, 0.1) 0px 1px 0px inset;
 
   --shadow-section-inset:
-    0px 1px 4px 0px var(--color-neutral-100) inset,
-    0px -1px 4px 0px var(--color-neutral-100) inset;
+    0px 1px 4px 0px var(--pattern-line) inset,
+    0px -1px 4px 0px var(--pattern-line) inset;
 
   --color-primary: var(--color-neutral-800);
   --color-secondary: var(--color-neutral-500);
@@ -56,9 +56,31 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+.dark {
+  --shadow-section:
+    rgba(0, 0, 0, 0.3) 0px 0px 24px, rgba(0, 0, 0, 0.2) 0px 1px 1px,
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 0px 4px,
+    rgba(0, 0, 0, 0.3) 0px 16px 68px,
+    rgba(255, 255, 255, 0.04) 0px 1px 0px inset;
+
+  --shadow-aceternity:
+    0px 2px 3px -1px rgba(0, 0, 0, 0.3), 8px 1px 0px 0px rgba(0, 0, 0, 0.15),
+    0px 0px 0px 1px rgba(255, 255, 255, 0.08);
+}
+
+:root {
+  --edge-border: #e5e5e5;
+  --edge-pattern: color-mix(in oklab, var(--edge-border) 30%, transparent);
+}
+.dark {
+  --edge-border: #393938;
+  --edge-pattern: color-mix(in oklab, var(--edge-border) 30%, transparent);
+}
+
 :root {
   --radius: 0.625rem;
   --pattern-fg: #e5e5e5;
+  --pattern-line: var(--color-neutral-100);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -96,10 +118,25 @@
 
 .dark {
   --pattern-fg: #393938;
-}
-
-.dark {
-  --pattern-fg: #393938;
+  --pattern-line: var(--color-neutral-800);
+  --background: oklch(0.09 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.13 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.13 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.95 0 0);
+  --primary-foreground: oklch(0.145 0 0);
+  --secondary: oklch(0.2 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.2 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.2 0 0);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.6 0.19 27);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.5 0 0);
 }
 
 @layer base {
@@ -161,5 +198,5 @@
 }
 
 @utility link-underline {
-    @apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current;
+  @apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current;
 }

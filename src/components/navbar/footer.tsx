@@ -10,7 +10,7 @@ import { FaHeart } from "react-icons/fa";
 
 export const Footer = () => {
   return (
-    <Container className="flex justify-between py-3 px-10 border-t border-neutral-200">
+    <Container className="flex justify-between py-3 px-10 border-t border-neutral-200 dark:border-neutral-800">
       <p className="text-xs text-neutral-500 flex">
         Built with <FaHeart className="mt-0.5 ml-1 mr-1" /> by Anupam Kumar
         Krishnan

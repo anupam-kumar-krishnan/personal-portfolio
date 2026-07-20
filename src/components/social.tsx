@@ -15,7 +15,7 @@ const socials = [
   },
   {
     name: "X",
-    href: "https://x.com/anupamkkrishnan",
+    href: "https://x.com/kuma19028",
     icon: FaXTwitter,
   },
   {

@@ -37,11 +37,10 @@ export const Navbar = () => {
 
   const playClickSound = () => {
     if (!audioRef.current) {
-      audioRef.current = new Audio("/sound/switch.mp3"); // <-- update path to your file
+      audioRef.current = new Audio("/sound/switch.mp3");
     }
-    audioRef.current.currentTime = 0; // reset so rapid clicks still replay from start
+    audioRef.current.currentTime = 0;
     audioRef.current.play().catch((err) => {
-      // Autoplay/interaction errors land here silently — safe to ignore
       console.warn("Sound playback failed:", err);
     });
   };
@@ -89,10 +88,11 @@ export const Navbar = () => {
               </span>
             </Link>
           ))}
-          {/* <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 ml-2" /> */}
+          <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 ml-2" />
         </div>
       </motion.nav>
 
+      {/* Mobile nav - hidden on desktop */}
       {/* Mobile nav - hidden on desktop */}
       <div className="fixed inset-x-0 top-0 z-50 md:hidden bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-800">
         <div className="flex items-center justify-between px-4 py-3">
@@ -106,54 +106,50 @@ export const Navbar = () => {
             />
           </Link>
 
-          <motion.div
-            animate={
-              menuOpen ? { rotate: 90, scale: 1.1 } : { rotate: 0, scale: 1 }
-            }
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
-          >
-            <div className="flex items-center gap-2">
-              {/* <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800" /> */}
-              <button
-                onClick={() => setMenuOpen(!menuOpen)}
-                className="p-2 rounded-md text-neutral-700 hover:bg-neutral-100"
-              >
-                {menuOpen ? (
-                  // X icon
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                ) : (
-                  // Hamburger icon
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                )}
-              </button>
-            </div>
-          </motion.div>
+          <div className="flex items-center gap-2">
+            <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800" />
+
+            <motion.button
+              onClick={() => setMenuOpen(!menuOpen)}
+              animate={
+                menuOpen ? { rotate: 90, scale: 1.1 } : { rotate: 0, scale: 1 }
+              }
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              className="p-2 rounded-md text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800"
+            >
+              {menuOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </motion.button>
+          </div>
         </div>
 
         {/* Mobile menu dropdown */}

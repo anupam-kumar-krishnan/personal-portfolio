@@ -43,7 +43,7 @@ export default async function SingleBlogPage({
             className="max-h-96 w-full border border-neutral-200 shadow-2xl rounded-2xl max-w-2xl mx-auto mb-20 object-cover"
           />
         )}
-        <div className="prose mx-auto">{content}</div>
+        <div className="prose dark:prose-invert mx-auto">{content}</div>
       </Container>
     </div>
   );

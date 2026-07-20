@@ -17,10 +17,10 @@ export function AppleHelloSplash() {
   }
 
   return (
-    <div className="fixed inset-0 z-[9999] grid place-items-center bg-white text-black">
+    <div className="fixed inset-0 z-[9999] grid place-items-center bg-white text-black dark:bg-neutral-950">
       <div className="flex flex-col items-center gap-6 px-6 py-8 text-center">
         <AppleHelloEffectEnglish
-          className="max-w-full text-black"
+          className="max-w-full text-black dark:text-white"
           onAnimationComplete={handleComplete}
         />
       </div>

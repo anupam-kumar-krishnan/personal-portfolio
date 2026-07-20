@@ -18,7 +18,7 @@ export default function Home() {
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
                 <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
-                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:border-neutral-800 dark:text-neutral-200">
                     <Briefcase
                       className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
@@ -38,7 +38,7 @@ export default function Home() {
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
                 <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
-                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:border-neutral-800 dark:text-neutral-200">
                     <MapPin
                       className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
@@ -57,7 +57,7 @@ export default function Home() {
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
                 <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
-                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:border-neutral-800 dark:text-neutral-200">
                     <CalendarDays
                       className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
@@ -68,7 +68,7 @@ export default function Home() {
 
               <div>
                 <p className="max-sm:text-xs text-neutral-500">Availability</p>
-                <p className="max-sm:text-xs text-neutral-900 dark:text-neutral-400">
+                <p className="max-sm:text-xs text-neutral-900 dark:text-white">
                   Available to Join Immediately
                 </p>
               </div>
@@ -79,7 +79,7 @@ export default function Home() {
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
                 <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
-                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:border-neutral-800 dark:text-neutral-200">
                     <Clock3
                       className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
@@ -98,7 +98,7 @@ export default function Home() {
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
                 <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
-                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:border-neutral-800 dark:text-neutral-200">
                     <Mail
                       className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}
@@ -124,7 +124,7 @@ export default function Home() {
               <span className="relative">
                 <span className="absolute -left-2 top-1/2 -translate-y-1/2 h-8 w-3 rounded-r-full border-r border-neutral-100/40 bg-transparent dark:border-neutral-900/30" />
                 <span className="grid place-items-center rounded-xl border border-neutral-200 p-0.5 sm:p-1 dark:border-neutral-800">
-                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-200">
+                  <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-lg bg-white border border-neutral-200 text-neutral-700 dark:bg-neutral-900 dark:border-neutral-800 dark:text-neutral-200">
                     <FileUser
                       className="h-4 w-4 sm:h-5 sm:w-5 text-neutral-700"
                       strokeWidth={1.5}

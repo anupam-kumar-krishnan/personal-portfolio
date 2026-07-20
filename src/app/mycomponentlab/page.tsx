@@ -20,6 +20,10 @@ interface ComponentItem {
   previewHref: string;
 }
 
+interface XIconProps {
+  className?: string;
+}
+
 // id = display number (No. 01, No. 02 …)
 const COMPONENTS: ComponentItem[] = [
   {
@@ -205,15 +209,25 @@ function DiamondIcon({ size = 14 }: { size?: number }) {
   );
 }
 
-function XIcon() {
+function XIcon({ className }: XIconProps) {
   return (
-    <svg width="12" height="12" viewBox="0 0 1200 1227" fill="white">
+    <svg
+      className={className}
+      width="12"
+      height="12"
+      viewBox="0 0 1200 1227"
+      fill="currentColor"
+    >
       <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.163 519.284ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.828Z" />
     </svg>
   );
 }
 
 // ── id 1 ─────────────────────────────────────────────────────────────────────
+// NOTE: thumbnails intentionally stay on a fixed light "preview" surface —
+// they're demonstrating specific components (some of which are light-themed
+// by design), not the page chrome itself. Only the page/card chrome around
+// them switches with dark mode.
 function NavPillThumb() {
   return (
     <div className="flex items-center justify-center w-full py-5 px-4 overflow-hidden">
@@ -986,9 +1000,14 @@ function Thumbnail({ id }: { id: number }) {
 function PulseButton() {
   return (
     <div className="relative flex items-center justify-center w-9 h-9">
-      <div className="anim-ring absolute w-9 h-9 rounded-full bg-neutral-900" />
-      <div className="relative z-10 w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+      <div className="anim-ring absolute w-9 h-9 rounded-full bg-neutral-900 dark:bg-neutral-100" />
+      <div className="relative z-10 w-9 h-9 rounded-full bg-neutral-900 dark:bg-neutral-100 flex items-center justify-center">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          className="fill-white dark:fill-neutral-950"
+        >
           <path d="M19 11H13V5a1 1 0 00-2 0v6H5a1 1 0 000 2h6v6a1 1 0 002 0v-6h6a1 1 0 000-2z" />
         </svg>
       </div>
@@ -1013,31 +1032,39 @@ function CardCell({
     <div
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className={`flex flex-col cursor-pointer transition-colors duration-150 ${hovered ? "bg-neutral-50" : "bg-white"}`}
+      className={`flex flex-col cursor-pointer transition-colors duration-150 ${
+        hovered
+          ? "bg-neutral-50 dark:bg-neutral-900"
+          : "bg-white dark:bg-neutral-950"
+      }`}
       style={gridArea ? { gridArea } : undefined}
     >
-      <div className="w-full bg-neutral-50 border-b border-neutral-100 flex items-center justify-center overflow-hidden">
+      <div className="w-full bg-neutral-50 dark:bg-neutral-900 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-center overflow-hidden">
         <Thumbnail id={component.id} />
       </div>
       <div className="p-4 flex flex-col flex-1">
-        <p className="text-[11px] text-neutral-400 mb-1">
+        <p className="text-[11px] text-neutral-400 dark:text-neutral-500 mb-1">
           No. {String(component.id).padStart(2, "0")}
         </p>
-        <h2 className="text-[14px] font-medium text-neutral-900 tracking-tight mb-1.5 leading-snug">
+        <h2 className="text-[14px] font-medium text-neutral-900 dark:text-neutral-100 tracking-tight mb-1.5 leading-snug">
           {component.title}
         </h2>
-        <p className="text-[12px] text-neutral-500 leading-relaxed flex-1 mb-4">
+        <p className="text-[12px] text-neutral-500 dark:text-neutral-400 leading-relaxed flex-1 mb-4">
           {component.description}
         </p>
         <div className="flex items-center justify-between">
-          <span className="text-[11px] px-2 py-0.5 rounded bg-neutral-100 text-neutral-500">
+          <span className="text-[11px] px-2 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400">
             {component.category}
           </span>
           <a
             href={component.previewHref}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-[12px] flex items-center gap-1 transition-colors duration-150 no-underline ${hovered ? "text-neutral-900" : "text-neutral-400"}`}
+            className={`text-[12px] flex items-center gap-1 transition-colors duration-150 no-underline ${
+              hovered
+                ? "text-neutral-900 dark:text-neutral-100"
+                : "text-neutral-400 dark:text-neutral-600"
+            }`}
           >
             Preview
             <svg
@@ -1082,23 +1109,31 @@ export default function DailyComponents() {
   return (
     <>
       <style>{KEYFRAMES}</style>
-      <div className="relative z-10 bg-white min-h-screen text-neutral-900">
+      <div className="relative z-10 bg-white dark:bg-[#141414] min-h-screen text-neutral-900 dark:text-neutral-100">
         <div className="max-w-4xl mx-auto relative px-16 pb-20">
-          <div className="absolute left-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-[length:10px_10px] bg-fixed" />
-          <div className="absolute right-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-[length:10px_10px] bg-fixed" />
+          <div
+            className="absolute right-0 inset-y-0 w-8 border-l border-r border-[var(--edge-border)] 
+        bg-[repeating-linear-gradient(315deg,var(--edge-pattern)_0,var(--edge-pattern)_1px,transparent_0,transparent_50%)]
+        bg-[length:10px_10px] bg-fixed"
+          />
+          <div
+            className="absolute left-0 inset-y-0 w-8 border-l border-r border-[var(--edge-border)] 
+        bg-[repeating-linear-gradient(315deg,var(--edge-pattern)_0,var(--edge-pattern)_1px,transparent_0,transparent_50%)]
+        bg-[length:10px_10px] bg-fixed"
+          />
 
           <div className="pt-20 pb-8">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <h1 className="text-[26px] sm:text-[30px] font-bold tracking-[-0.8px] leading-[1.15] text-neutral-900">
+                <h1 className="text-[26px] sm:text-[30px] font-bold tracking-[-0.8px] leading-[1.15] text-neutral-900 dark:text-neutral-100">
                   My Components Lab
                 </h1>
-                <p className="text-[14px] text-neutral-500 leading-relaxed mt-2 max-w-[42ch]">
+                <p className="text-[14px] text-neutral-500 dark:text-neutral-400 leading-relaxed mt-2 max-w-[42ch]">
                   A set of handcrafted UI components built daily. Click any card
                   to preview.
                 </p>
               </div>
-              <span className="text-[11px] font-medium text-neutral-500 bg-neutral-100 rounded-full px-3 py-1 shrink-0 mt-1 whitespace-nowrap">
+              <span className="text-[11px] font-medium text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-900 rounded-full px-3 py-1 shrink-0 mt-1 whitespace-nowrap">
                 {COMPONENTS.length} components
               </span>
             </div>
@@ -1111,8 +1146,8 @@ export default function DailyComponents() {
                 onClick={() => setActiveFilter(f)}
                 className={`text-[12px] px-3 py-1 rounded-full border transition-all duration-150 cursor-pointer ${
                   activeFilter === f
-                    ? "bg-neutral-900 text-white border-neutral-900"
-                    : "bg-white text-neutral-500 border-neutral-200 hover:border-neutral-400 hover:text-neutral-900"
+                    ? "bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-950 border-neutral-900 dark:border-neutral-100"
+                    : "bg-white dark:bg-neutral-950 text-neutral-500 dark:text-neutral-400 border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-100"
                 }`}
               >
                 {f}
@@ -1121,7 +1156,7 @@ export default function DailyComponents() {
           </div>
 
           {isFiltered ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-neutral-200 rounded-xl overflow-hidden border border-neutral-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-neutral-200 dark:bg-neutral-800 rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
               {filtered.map((c) => (
                 <CardCell
                   key={c.id}
@@ -1133,7 +1168,7 @@ export default function DailyComponents() {
               ))}
             </div>
           ) : isMobile ? (
-            <div className="rounded-xl overflow-hidden border border-neutral-200 flex flex-col gap-px bg-neutral-200">
+            <div className="rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 flex flex-col gap-px bg-neutral-200 dark:bg-neutral-800">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((id) => (
                 <CardCell
                   key={id}
@@ -1143,21 +1178,20 @@ export default function DailyComponents() {
                   onLeave={() => setHoveredId(null)}
                 />
               ))}
-              <div className="bg-white flex flex-col items-center justify-center gap-3 py-14">
+              <div className="bg-white dark:bg-neutral-950 flex flex-col items-center justify-center gap-3 py-14">
                 <PulseButton />
-                <p className="text-[14px] font-medium text-neutral-900">
+                <p className="text-[14px] font-medium text-neutral-900 dark:text-neutral-100">
                   More Coming Soon
                 </p>
               </div>
             </div>
           ) : (
             <div
-              className="rounded-xl overflow-hidden border border-neutral-200"
+              className="rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(4, 1fr)",
                 gap: "1px",
-                background: "#e5e5e5",
               }}
             >
               {/* Row 1 — No.01 Pill Navbar */}
@@ -1230,19 +1264,19 @@ export default function DailyComponents() {
               />
               {/* Row 6 — More coming soon */}
               <div
-                className="bg-white flex flex-col items-center justify-center gap-3 py-14"
+                className="bg-white dark:bg-neutral-950 flex flex-col items-center justify-center gap-3 py-14"
                 style={{ gridArea: "6 / 1 / 7 / 5" }}
               >
                 <PulseButton />
-                <p className="text-[14px] font-medium text-neutral-900">
+                <p className="text-[14px] font-medium text-neutral-900 dark:text-neutral-100">
                   More Coming Soon
                 </p>
               </div>
             </div>
           )}
 
-          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-neutral-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <span className="text-[12px] text-neutral-400">
+          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <span className="text-[12px] text-neutral-400 dark:text-neutral-600">
               Follow the Journey — @kuma19028
             </span>
             <a
@@ -1252,8 +1286,8 @@ export default function DailyComponents() {
               className="anim-shimmer relative inline-flex items-center rounded-full no-underline"
               style={{ padding: "1.5px" }}
             >
-              <span className="flex items-center gap-2 bg-neutral-900 rounded-full px-[18px] py-[7px] text-[12px] font-medium text-white whitespace-nowrap">
-                <XIcon />
+              <span className="flex items-center gap-2 bg-neutral-900 dark:bg-neutral-100 rounded-full px-[18px] py-[7px] text-[12px] font-medium text-white dark:text-neutral-950 whitespace-nowrap">
+                <XIcon className="h-4 w-4 text-white dark:text-neutral-950" />
                 Follow on X
               </span>
             </a>

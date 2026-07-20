@@ -64,6 +64,7 @@ export default function RootLayout({
           <Toaster position="top-center" />
           <AppleHelloSplash />
           <Navbar />
+
           {children}
           <Footer />
         </ThemeProvider>

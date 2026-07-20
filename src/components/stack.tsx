@@ -279,7 +279,7 @@ const categories: Category[] = [
 
 export default function TechStack() {
   return (
-    <div className="mx-auto w-full pl-5 divide-y divide-neutral-100 dark:divide-neutral-800  border-y border-neutral-100 shadow-section-inset">
+    <div className="mx-auto w-full pl-5 divide-y divide-neutral-100 dark:divide-neutral-800  border-y border-neutral-100 shadow-section-inset dark:border-neutral-800">
       <SectionHeading
         className="w-fit mt-4 pt-0.5 pb-0.5 mb-5 pl-0.5 pr-0.5 bg-neutral-100 text-neutral-700 dark:bg-[#262727] dark:text-white rounded-md"
         delay={0.4}

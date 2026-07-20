@@ -36,7 +36,7 @@ export const ContactForm = () => {
   const handleChnage = (
     e:
       | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -44,7 +44,7 @@ export const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="shadow-section-inset mx-auto border-y border-neutral-100 py-14 my-6"
+      className="shadow-section-inset mx-auto border-y border-neutral-100 py-14 my-6 dark:border-neutral-800"
     >
       <div className="max-w-lg mx-auto gap-5">
         <div className="flex flex-col gap-2">

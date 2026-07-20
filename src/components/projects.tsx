@@ -128,7 +128,7 @@ export const Projects = ({
   projects?: Project[];
 }) => {
   return (
-    <div className="my-4 border-y border-neutral-100 shadow-section-inset">
+    <div className="my-4 border-y border-neutral-100 shadow-section-inset dark:border-neutral-800">
       <SectionHeading
         delay={0.2}
         className="bg-neutral-100 w-fit mt-10 ml-4 text-center pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-neutral-700 text-sm sm:text:sm dark:bg-[#262727] dark:text-white rounded-md"
