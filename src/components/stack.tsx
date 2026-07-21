@@ -5,15 +5,11 @@ import {
   SiNextdotjs,
   SiTailwindcss,
   SiShadcnui,
-  SiRadixui,
   SiFramer,
-  SiExpo,
   SiNodedotjs,
-  SiBun,
   SiPostgresql,
   SiMongodb,
   SiRedis,
-  SiNginx,
   SiClaude,
   SiGooglegemini,
   SiOpenai,
@@ -191,7 +187,6 @@ const categories: Category[] = [
         name: "PostgreSQL",
         icon: <SiPostgresql className={iconClass} />,
         color: "#336791",
-        alwaysColor: true,
       },
       {
         name: "MongoDB",
@@ -312,7 +307,7 @@ export default function TechStack() {
                 ) : item.alwaysColor ? (
                   <span className="text-[var(--brand)]">{item.icon}</span>
                 ) : (
-                  <span className="text-neutral-600 transition-colors duration-200 group-hover:text-[var(--brand)] dark:text-neutral-300">
+                  <span className="text-neutral-600 transition-colors duration-200 group-hover:text-[var(--brand)] dark:text-neutral-300 dark:group-hover:text-[var(--brand)]">
                     {item.icon}
                   </span>
                 )}

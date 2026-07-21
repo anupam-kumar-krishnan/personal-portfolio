@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Container } from "../container";
 import Link from "next/link";
@@ -32,17 +32,45 @@ export const Navbar = () => {
     setScrolled(latest > 20);
   });
 
-  // Ref to reuse a single Audio instance instead of creating a new one every click
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  // Web Audio API refs — decode once on mount, play from memory on every click
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const audioBufferRef = useRef<AudioBuffer | null>(null);
+
+  useEffect(() => {
+    const AudioContextClass =
+      window.AudioContext || (window as any).webkitAudioContext;
+    const ctx = new AudioContextClass();
+    audioCtxRef.current = ctx;
+
+    fetch("/sound/switch.mp3")
+      .then((res) => res.arrayBuffer())
+      .then((data) => ctx.decodeAudioData(data))
+      .then((buffer) => {
+        audioBufferRef.current = buffer;
+      })
+      .catch((err) => {
+        console.warn("Failed to load click sound:", err);
+      });
+
+    return () => {
+      ctx.close();
+    };
+  }, []);
 
   const playClickSound = () => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio("/sound/switch.mp3");
+    const ctx = audioCtxRef.current;
+    const buffer = audioBufferRef.current;
+    if (!ctx || !buffer) return;
+
+    // Resume context if browser suspended it before first gesture
+    if (ctx.state === "suspended") {
+      ctx.resume();
     }
-    audioRef.current.currentTime = 0;
-    audioRef.current.play().catch((err) => {
-      console.warn("Sound playback failed:", err);
-    });
+
+    const source = ctx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(ctx.destination);
+    source.start(0);
   };
 
   return (
@@ -57,7 +85,7 @@ export const Navbar = () => {
         transition={{ duration: 0.3, ease: "linear" }}
         className="fixed inset-x-0 top-0 z-50 mx-auto backdrop-blur-sm hidden md:flex max-w-4xl items-center justify-between px-3 py-2 rounded-4xl bg-white/80 dark:bg-neutral-900/80"
       >
-        <Link href="/">
+        <Link href="/" onClick={playClickSound}>
           <Image
             className="h-10 w-10 rounded-full"
             src="/avatar.webp"
@@ -88,15 +116,18 @@ export const Navbar = () => {
               </span>
             </Link>
           ))}
-          <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 ml-2" />
+
+          {/* Wrapper div lets us play sound via bubbling without editing AnimatedThemeToggler */}
+          <div onClick={playClickSound} className="ml-2">
+            <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800" />
+          </div>
         </div>
       </motion.nav>
 
       {/* Mobile nav - hidden on desktop */}
-      {/* Mobile nav - hidden on desktop */}
       <div className="fixed inset-x-0 top-0 z-50 md:hidden bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-800">
         <div className="flex items-center justify-between px-4 py-3">
-          <Link href="/">
+          <Link href="/" onClick={playClickSound}>
             <Image
               className="h-10 w-10 rounded-full"
               src="/avatar.webp"
@@ -107,10 +138,15 @@ export const Navbar = () => {
           </Link>
 
           <div className="flex items-center gap-2">
-            <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800" />
+            <div onClick={playClickSound}>
+              <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800" />
+            </div>
 
             <motion.button
-              onClick={() => setMenuOpen(!menuOpen)}
+              onClick={() => {
+                playClickSound();
+                setMenuOpen(!menuOpen);
+              }}
               animate={
                 menuOpen ? { rotate: 90, scale: 1.1 } : { rotate: 0, scale: 1 }
               }
