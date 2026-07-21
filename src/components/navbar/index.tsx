@@ -42,7 +42,7 @@ export const Navbar = () => {
     const ctx = new AudioContextClass();
     audioCtxRef.current = ctx;
 
-    fetch("/sound/switch.mp3")
+    fetch("/sound/click-sound.wav")
       .then((res) => res.arrayBuffer())
       .then((data) => ctx.decodeAudioData(data))
       .then((buffer) => {
