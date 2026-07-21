@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Container } from "../container";
 import Link from "next/link";
@@ -10,6 +10,8 @@ import {
   useTransform,
 } from "motion/react";
 import { AnimatedThemeToggler } from "../ui/animated-theme-toggler";
+import { useClickSound } from "@/hooks/use-click-sound";
+import { Search } from "lucide-react";
 
 export const Navbar = () => {
   const navItems = [
@@ -32,45 +34,11 @@ export const Navbar = () => {
     setScrolled(latest > 20);
   });
 
-  // Web Audio API refs — decode once on mount, play from memory on every click
-  const audioCtxRef = useRef<AudioContext | null>(null);
-  const audioBufferRef = useRef<AudioBuffer | null>(null);
+  const playClickSound = useClickSound();
 
-  useEffect(() => {
-    const AudioContextClass =
-      window.AudioContext || (window as any).webkitAudioContext;
-    const ctx = new AudioContextClass();
-    audioCtxRef.current = ctx;
-
-    fetch("/sound/click-sound.wav")
-      .then((res) => res.arrayBuffer())
-      .then((data) => ctx.decodeAudioData(data))
-      .then((buffer) => {
-        audioBufferRef.current = buffer;
-      })
-      .catch((err) => {
-        console.warn("Failed to load click sound:", err);
-      });
-
-    return () => {
-      ctx.close();
-    };
-  }, []);
-
-  const playClickSound = () => {
-    const ctx = audioCtxRef.current;
-    const buffer = audioBufferRef.current;
-    if (!ctx || !buffer) return;
-
-    // Resume context if browser suspended it before first gesture
-    if (ctx.state === "suspended") {
-      ctx.resume();
-    }
-
-    const source = ctx.createBufferSource();
-    source.buffer = buffer;
-    source.connect(ctx.destination);
-    source.start(0);
+  const openSearch = () => {
+    playClickSound();
+    document.dispatchEvent(new CustomEvent("open-command-palette"));
   };
 
   return (
@@ -117,6 +85,15 @@ export const Navbar = () => {
             </Link>
           ))}
 
+          {/* Search trigger */}
+          <button
+            onClick={openSearch}
+            className="flex items-center gap-1.5 rounded-md px-2 py-1 text-sm text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:text-neutral-400 ml-1"
+          >
+            <Search className="h-3.5 w-3.5" />
+            <kbd className="text-sm hidden lg:inline-block">Search ⌘ K</kbd>
+          </button>
+
           {/* Wrapper div lets us play sound via bubbling without editing AnimatedThemeToggler */}
           <div onClick={playClickSound} className="ml-2">
             <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800" />
@@ -138,6 +115,13 @@ export const Navbar = () => {
           </Link>
 
           <div className="flex items-center gap-2">
+            <button
+              onClick={openSearch}
+              className="p-2 rounded-md text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800"
+            >
+              <Search className="h-4 w-4" />
+            </button>
+
             <div onClick={playClickSound}>
               <AnimatedThemeToggler className="p-2 rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800" />
             </div>

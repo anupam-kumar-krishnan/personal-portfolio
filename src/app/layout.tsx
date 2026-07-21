@@ -6,6 +6,8 @@ import { Footer } from "@/components/navbar/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppleHelloSplash } from "@/components/apple-hello-splash";
 import { Toaster } from "sonner";
+import { getAllPosts } from "@/lib/blog";
+import { CommandPalette } from "@/components/command-palette";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -54,6 +56,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const posts = getAllPosts();
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -66,6 +69,7 @@ export default function RootLayout({
           <Navbar />
 
           {children}
+          <CommandPalette posts={posts} />
           <Footer />
         </ThemeProvider>
       </body>
