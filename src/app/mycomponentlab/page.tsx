@@ -1109,8 +1109,8 @@ export default function DailyComponents() {
   return (
     <>
       <style>{KEYFRAMES}</style>
-      <div className="relative z-10 bg-white dark:bg-[#141414] min-h-screen text-neutral-900 dark:text-neutral-100">
-        <div className="max-w-4xl mx-auto relative px-16 pb-20">
+      <div className="relative z-10 bg-white dark:bg-[#0A0A0A] min-h-screen text-neutral-900 dark:text-neutral-100">
+        <div className="max-w-4xl mx-auto relative px-16 pb-20 dark:bg-[#141414]">
           <div
             className="absolute right-0 inset-y-0 w-8 border-l border-r border-[var(--edge-border)] 
         bg-[repeating-linear-gradient(315deg,var(--edge-pattern)_0,var(--edge-pattern)_1px,transparent_0,transparent_50%)]

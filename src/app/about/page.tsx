@@ -17,7 +17,7 @@ export default function AboutPage() {
         <Heading>About Me</Heading>
 
         <Subheading className="max-w-4xl">
-          Software Development Engineer with ~3 years of professional experience
+          Software Development Engineer with 3 years of professional experience
           building scalable SaaS and enterprise software, AI-powered products,
           and production systems. Experienced in designing modern frontend
           architectures using React.js, Next.js, TypeScript, Redux, Tailwind
