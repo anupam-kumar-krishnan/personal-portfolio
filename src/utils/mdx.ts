@@ -8,6 +8,7 @@ type FrontMatter = {
   description: string;
   date: string;
   image: string;
+  tags?: string[];
 };
 
 export const getSingleBlog = async (slug: string) => {
@@ -17,7 +18,7 @@ export const getSingleBlog = async (slug: string) => {
 
     if (!singleBlog) return null;
 
-    const { content, frontmatter } = await compileMDX<{ title: string }>({
+    const { content, frontmatter } = await compileMDX<FrontMatter>({
       source: singleBlog,
       options: {
         parseFrontmatter: true,
@@ -32,32 +33,6 @@ export const getSingleBlog = async (slug: string) => {
     console.error(`Error reading blog file for slug "${slug}"`, error);
     return null;
   }
-};
-
-export const getBlogs = async () => {
-  const files = await fs.readdir(path.join(process.cwd(), "src/data"));
-
-  const allBlogs = await Promise.all(
-    files.map(async (file) => {
-      const slug = file.replace(".mdx", "");
-      const frontmatter = await getBlogFrontMatterBySlug(slug);
-      return { slug, ...(frontmatter ?? {}) };
-    }),
-  );
-
-  return allBlogs
-    .filter(
-      (
-        blog,
-      ): blog is {
-        slug: string;
-        title: string;
-        description: string;
-        date: string;
-        image: string;
-      } => Boolean(blog.title && blog.date),
-    )
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
 
 export const getBlogFrontMatterBySlug = async (slug: string) => {
@@ -80,4 +55,22 @@ export const getBlogFrontMatterBySlug = async (slug: string) => {
     console.error(`Error reading frontmatter for slug "${slug}"`, error);
     return null;
   }
+};
+
+export const getBlogs = async () => {
+  const files = await fs.readdir(path.join(process.cwd(), "src/data"));
+
+  const allBlogs = await Promise.all(
+    files.map(async (file) => {
+      const slug = file.replace(".mdx", "");
+      const frontmatter = await getBlogFrontMatterBySlug(slug);
+      return { slug, ...(frontmatter ?? {}) };
+    }),
+  );
+
+  return allBlogs
+    .filter((blog): blog is { slug: string } & FrontMatter =>
+      Boolean(blog.title && blog.date),
+    )
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };

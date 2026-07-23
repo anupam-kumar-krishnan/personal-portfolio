@@ -2,6 +2,7 @@ import React from "react";
 import { getBlogs } from "@/utils/mdx";
 import Link from "next/link";
 import SectionHeading from "@/components/section-heading";
+import { CalendarDays } from "lucide-react";
 
 export const LandingBlogs = async () => {
   const allBlogs = await getBlogs();
@@ -26,18 +27,33 @@ export const LandingBlogs = async () => {
               <h2 className="text-primary text-base font-bold tracking-tight">
                 {blog.title}
               </h2>
-              <p className="text-secondary text-sm md:text-sm">
-                {new Date(blog.date || "").toLocaleDateString("en-us", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
+              <p className="text-secondary text-sm md:text-sm flex gap-1.5">
+                <CalendarDays className="h-4.5 w-4.5" />
+                <span>
+                  {new Date(blog.date || "").toLocaleDateString("en-us", {
+                    // weekday: "long",
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </span>
               </p>
             </div>
             <p className="text-secondary max-w-lg pt-2 text-sm md:text-sm sm:pb-5">
               {truncate(blog.description || "", 120)}
             </p>
+            {blog.tags && blog.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 pb-7">
+                {blog.tags.map((tag: string) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] text-secondary bg-[#dfdddd] dark:bg-white/5 rounded-sm px-2 py-1"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </Link>
         ))}
       </div>
