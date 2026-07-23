@@ -1,6 +1,12 @@
 import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import SectionHeading from "@/components/section-heading";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const socials = [
   {
@@ -35,19 +41,24 @@ export default function SocialLinks() {
         &nbsp;Come say hi
       </SectionHeading>
       <div className="mt-8 ml-5 flex flex-wrap items-center justify-start gap-3">
-        {socials.map(({ name, href, icon: Icon }) => (
-          <a
-            key={name}
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-            title={name}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-200 bg-white text-neutral-700 transition hover:border-neutral-300 hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-200 dark:hover:border-neutral-700 dark:hover:bg-neutral-900"
-          >
-            <Icon className="h-6 w-6" />
-            <span className="sr-only">{name}</span>
-          </a>
-        ))}
+        <TooltipProvider delayDuration={150}>
+          {socials.map(({ name, href, icon: Icon }) => (
+            <Tooltip key={name}>
+              <TooltipTrigger asChild>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-200 bg-white text-neutral-700 transition hover:border-neutral-300 hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-200 dark:hover:border-neutral-700 dark:hover:bg-neutral-900"
+                >
+                  <Icon className="h-6 w-6" />
+                  <span className="sr-only">{name}</span>
+                </a>
+              </TooltipTrigger>
+              <TooltipContent>{name}</TooltipContent>
+            </Tooltip>
+          ))}
+        </TooltipProvider>
       </div>
     </>
   );

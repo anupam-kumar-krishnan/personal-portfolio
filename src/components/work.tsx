@@ -15,189 +15,114 @@ import {
 import { RiNextjsLine } from "react-icons/ri";
 import { LinkPreview } from "./ui/link-preview";
 
-const techStack = [
+type TechItem = {
+  icon: React.ReactNode;
+  label: string;
+  color: string;
+};
+
+const techStack: TechItem[] = [
   {
     icon: <FaHtml5 className="w-4 h-4" />,
     label: "HTML5",
     color: "text-orange-500",
-    bg: "bg-orange-50",
-    border: "border-orange-200",
   },
   {
     icon: <FaCss3Alt className="w-4 h-4" />,
     label: "CSS3",
     color: "text-blue-500",
-    bg: "bg-blue-50",
-    border: "border-blue-200",
   },
   {
     icon: <FaJs className="w-4 h-4" />,
     label: "JavaScript",
-    color: "text-yellow-500",
-    bg: "bg-yellow-100",
-    border: "border-yellow-200",
+    color: "text-yellow-400",
   },
   {
     icon: <FaReact className="w-4 h-4" />,
     label: "React.js",
     color: "text-sky-400",
-    bg: "bg-sky-50",
-    border: "border-sky-200",
   },
   {
     icon: <SiJest className="w-4 h-4" />,
     label: "Jest",
     color: "text-[#c13a13]",
-    bg: "bg-red-50",
-    border: "border-red-200",
   },
   {
     icon: <SiRedux className="w-4 h-4" />,
     label: "Redux",
     color: "text-purple-500",
-    bg: "bg-purple-50",
-    border: "border-purple-200",
   },
   {
     icon: <SiTailwindcss className="w-4 h-4" />,
     label: "Tailwind CSS",
     color: "text-cyan-400",
-    bg: "bg-cyan-50",
-    border: "border-cyan-200",
   },
   {
     icon: <RiNextjsLine className="w-4 h-4" />,
     label: "Next.js",
-    color: "text-neutral-800",
-    bg: "bg-neutral-100",
-    border: "border-neutral-300",
+    color: "text-neutral-300 dark:text-white",
   },
 ];
 
-const TechBadge = ({
-  icon,
-  label,
-  color,
-  bg,
-  border,
-}: (typeof techStack)[0]) => (
-  <div
-    className={`
-      group relative flex items-center justify-center
-      w-8 h-8 rounded-full border ${border} ${bg}
-      -ml-2 first:ml-0
-      cursor-pointer
-      transition-all duration-300 ease-out
-      hover:w-auto hover:rounded-full hover:px-2.5 hover:z-10
-      hover:shadow-md
-      hover:scale-105
-      active:w-auto active:rounded-full active:px-2.5 active:z-10
-      active:shadow-md active:scale-105
-      focus-within:w-auto focus-within:rounded-full focus-within:px-2.5 focus-within:z-10
-      focus-within:shadow-md focus-within:scale-105
-    `}
-    style={{ minWidth: "2rem" }}
-  >
-    <span className={`${color} flex-shrink-0`}>{icon}</span>
-    <span
-      className={`
-        ${color} text-xs font-medium
-        max-w-0 overflow-hidden whitespace-nowrap
-        transition-all duration-300 ease-out
-        group-hover:max-w-[80px] group-hover:ml-1.5
-        active:max-w-[80px] active:ml-1.5
-        focus-within:max-w-[80px] focus-within:ml-1.5
-      `}
-    >
-      {label}
-    </span>
-  </div>
-);
-const techStack2 = [
+const techStack2: TechItem[] = [
   {
     icon: <FaReact className="w-4 h-4" />,
     label: "React.js",
     color: "text-sky-400",
-    bg: "bg-sky-50",
-    border: "border-sky-200",
   },
   {
     icon: <RiNextjsLine className="w-4 h-4" />,
     label: "Next.js",
-    color: "text-neutral-800",
-    bg: "bg-neutral-100",
-    border: "border-neutral-300",
+    color: "text-neutral-300 dark:text-white",
   },
   {
     icon: <SiTailwindcss className="w-4 h-4" />,
     label: "Tailwind CSS",
     color: "text-cyan-400",
-    bg: "bg-cyan-50",
-    border: "border-cyan-200",
   },
   {
     icon: <SiJest className="w-4 h-4" />,
     label: "Jest",
     color: "text-[#c13a13]",
-    bg: "bg-red-50",
-    border: "border-red-200",
   },
   {
     icon: <SiRedux className="w-4 h-4" />,
     label: "Redux",
     color: "text-purple-500",
-    bg: "bg-purple-50",
-    border: "border-purple-200",
   },
   {
     icon: <SiPrisma className="w-4 h-4" />,
     label: "Prisma",
     color: "text-green-500",
-    bg: "bg-green-50",
-    border: "border-green-200",
   },
   {
     icon: <SiSupabase className="w-4 h-4" />,
     label: "Supabase",
     color: "text-green-500",
-    bg: "bg-green-50",
-    border: "border-green-200",
   },
   {
     icon: <SiPostgresql className="w-4 h-4" />,
     label: "PostgreSQL",
     color: "text-blue-500",
-    bg: "bg-blue-50",
-    border: "border-blue-200",
   },
   {
     icon: <SiResend className="w-4 h-4" />,
     label: "Resend",
-    color: "text-grey-500",
-    bg: "bg-grey-50",
-    border: "border-grey-200",
+    color: "text-gray-400",
   },
 ];
 
-const TechBadge2 = ({
-  icon,
-  label,
-  color,
-  bg,
-  border,
-}: (typeof techStack)[0]) => (
+const TechBadge = ({ icon, label, color }: TechItem) => (
   <div
     className={`
       group relative flex items-center justify-center
-      w-8 h-8 rounded-full border ${border} ${bg}
+      w-8 h-8 rounded-full
+      bg-neutral-100 dark:bg-neutral-800
       -ml-2 first:ml-0
       cursor-pointer
       transition-all duration-300 ease-out
       hover:w-auto hover:rounded-full hover:px-2.5 hover:z-10
-      hover:shadow-md
-      hover:scale-105
-      active:w-auto active:rounded-full active:px-2.5 active:z-10
-      active:shadow-md active:scale-105
+      hover:shadow-md hover:scale-105
       focus-within:w-auto focus-within:rounded-full focus-within:px-2.5 focus-within:z-10
       focus-within:shadow-md focus-within:scale-105
     `}
@@ -206,12 +131,11 @@ const TechBadge2 = ({
     <span className={`${color} flex-shrink-0`}>{icon}</span>
     <span
       className={`
-        ${color} text-xs font-medium
+        text-neutral-700 dark:text-neutral-200 text-xs font-medium
         max-w-0 overflow-hidden whitespace-nowrap
         transition-all duration-300 ease-out
-        group-hover:max-w-[80px] group-hover:ml-1.5
-        active:max-w-[80px] active:ml-1.5
-        focus-within:max-w-[80px] focus-within:ml-1.5
+        group-hover:max-w-[100px] group-hover:ml-1.5
+        focus-within:max-w-[100px] focus-within:ml-1.5
       `}
     >
       {label}
