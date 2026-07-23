@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import ReadingProgressPill from "@/components/blog-progress-pill";
 import Link from "next/link";
 import { Undo2 } from "lucide-react";
+import BlogMeta from "@/components/date-share-blog";
 
 export const metadata: Metadata = {
   title: "All blogs - Anupam",
@@ -29,7 +30,7 @@ export default async function SingleBlogPage({
 
   const { content, frontmatter } = blog as {
     content: React.ReactElement;
-    frontmatter: { title: string; image?: string };
+    frontmatter: { title: string; image?: string; date: string };
   };
 
   console.log(frontmatter);
@@ -54,7 +55,14 @@ export default async function SingleBlogPage({
             className="max-h-96 w-full border border-neutral-200 shadow-2xl rounded-2xl max-w-2xl mx-auto mb-20 object-cover"
           />
         )}
+
         <div id="blog-content" className="prose dark:prose-invert mx-auto">
+          <BlogMeta
+            date={frontmatter.date}
+            title={frontmatter.title}
+            url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`}
+          />
+
           {content}
         </div>
       </Container>
