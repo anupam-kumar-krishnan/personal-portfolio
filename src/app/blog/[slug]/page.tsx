@@ -42,7 +42,7 @@ export default async function SingleBlogPage({
         <div className="absolute left-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-[length:10px_10px] bg-fixed" />
         <Link
           href="/blog"
-          className="md:ml-18 mb-8 inline-flex items-center gap-2 text-sm font-medium text-neutral-800 hover:text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-400"
+          className="ml-4 md:ml-18 mb-8 inline-flex items-center gap-2 text-sm font-medium text-neutral-800 hover:text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-400"
         >
           <Undo2 className="h-4 w-4" />
           Back to Blog
