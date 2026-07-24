@@ -10,6 +10,7 @@ import { SpotlightLogo } from "@/components/spotlight-logo";
 import Intro from "@/components/intro";
 import SocialLinks from "@/components/social";
 import Stack from "@/components/stack";
+import GetInTouch from "../components/get-in-touch";
 
 export default function Home() {
   return (
@@ -67,6 +68,7 @@ export default function Home() {
         <Work />
         <Stack />
         <LandingBlogs />
+        <GetInTouch />
       </Container>
     </div>
   );
