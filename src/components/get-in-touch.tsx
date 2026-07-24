@@ -88,12 +88,12 @@ export default function GetInTouch() {
 
       {/* Status message */}
       {status === "success" && (
-        <p className="mt-3 text-sm text-emerald-600 dark:text-emerald-400">
+        <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
           Thanks! Your enquiry has been sent — I'll get back to you soon.
         </p>
       )}
       {status === "error" && (
-        <p className="mt-3 text-sm text-red-600 dark:text-red-400">
+        <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
           {errorMessage}
         </p>
       )}
