@@ -6,7 +6,7 @@ const cspHeader = `
     style-src 'self' 'unsafe-inline';
     img-src 'self' data: https:;
     font-src 'self' data:;
-    connect-src 'self';
+    connect-src 'self' https://api.web3forms.com;
     frame-ancestors 'none';
     base-uri 'self';
     form-action 'self';
