@@ -7,6 +7,7 @@ import {
   CalendarDays,
   FileUser,
 } from "lucide-react";
+import { CopyButton } from "@/components/copy-button";
 
 export default function Home() {
   return (
@@ -108,15 +109,22 @@ export default function Home() {
               </span>
 
               <div className="min-w-0">
-                <p className="max-sm:text-xs text-neutral-500">Email</p>
-                <p className="max-sm:text-xs text-neutral-900 dark:text-neutral-400 break-all">
+                <p className="max-sm:text-xs text-neutral-500 leading-none">
+                  Email
+                </p>
+                <div className="flex items-center gap-1.5">
                   <a
                     href="mailto:anupamk.krishnan@gmail.com"
-                    className="text-neutral-900 dark:text-neutral-400 break-all hover:underline"
+                    className="max-sm:text-xs text-neutral-900 dark:text-white break-all hover:underline"
                   >
                     anupamk.krishnan@gmail.com
                   </a>
-                </p>
+                  <CopyButton
+                    size="sm"
+                    className="bg-white hover:bg-white text-neutral-800 dark:bg-black dark:text-white shrink-0 !h-5 !w-5 !p-0"
+                    text="anupamk.krishnan@gmail.com"
+                  />
+                </div>
               </div>
             </div>
 
@@ -140,7 +148,7 @@ export default function Home() {
                     href="/resume/Anupam-Kr-Krishnan-3-YOE.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-neutral-900 dark:text-neutral-400 hover:underline"
+                    className="text-neutral-900 dark:text-white hover:underline"
                   >
                     Anupam Kr. Krishnan.pdf
                   </a>
