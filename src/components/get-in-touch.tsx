@@ -65,7 +65,7 @@ export default function GetInTouch() {
       {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="mt-5 flex w-sm md:w-lg flex-col gap-2 rounded-xl p-1.5 sm:flex-row sm:items-center bg-neutral-100 border border-neutral-200 dark:bg-[#1a1a1a] dark:border-white/[0.08]"
+        className="mt-5 flex w-full max-w-sm md:max-w-lg flex-col gap-2 rounded-xl p-1.5 sm:flex-row sm:items-center bg-neutral-100 border border-neutral-200 dark:bg-[#1a1a1a] dark:border-white/[0.08]"
       >
         <input
           type="email"
@@ -88,12 +88,12 @@ export default function GetInTouch() {
 
       {/* Status message */}
       {status === "success" && (
-        <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
+        <p className="mt-3 text-sm text-emerald-600 dark:text-emerald-400">
           Thanks! Your enquiry has been sent — I'll get back to you soon.
         </p>
       )}
       {status === "error" && (
-        <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
+        <p className="mt-3 text-sm text-red-600 dark:text-red-400">
           {errorMessage}
         </p>
       )}
