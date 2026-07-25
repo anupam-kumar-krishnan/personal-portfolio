@@ -14,8 +14,8 @@ export default function ContactPage() {
         <div className="absolute left-0 top-0 h-full w-8 border-l border-r border-[var(--pattern-fg)] bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-[length:10px_10px] bg-fixed" />
         <Heading>Contact Me</Heading>
         <Subheading className="pb-10">
-          I'm open to freelancing offers. Reach out to me to inquire more about
-          my work.
+          I'm open to both full-time and freelance opportunities. Feel free to
+          reach out to learn more about my work.
         </Subheading>
         <ContactForm />
       </Container>
