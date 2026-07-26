@@ -121,83 +121,85 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
       </div>
 
       <div className="flex flex-col gap-8 py-10 shadow-section-inset">
-        {filteredBlogs.map((blog) => (
-          <Link
-            key={blog.title}
-            href={`/blog/${blog.slug}`}
-            className="relative block"
-          >
-            <div
-              onMouseEnter={() => setHoveredSlug(blog.slug)}
-              onMouseMove={handleContentMove}
-              onMouseLeave={() => setHoveredSlug(null)}
-              className={`transition-all duration-300 ${
-                hoveredSlug && hoveredSlug !== blog.slug
-                  ? "opacity-40 blur-[2px]"
-                  : "opacity-100 blur-0"
-              }`}
+        {filteredBlogs.map((blog, idx) => {
+          const isLast = idx === filteredBlogs.length - 1;
+          return (
+            <Link
+              key={blog.title}
+              href={`/blog/${blog.slug}`}
+              className="relative block"
             >
-              <div className="flex items-center justify-between px-4">
-                <h2 className="text-primary text-base font-bold tracking-tight w-fit">
-                  {blog.title}
-                </h2>
-                <span className="text-secondary text-sm font-medium flex items-center gap-1 shrink-0">
-                  Read more
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </div>
-              <p className="text-secondary max-w-lg pt-2 text-sm md:text-sm pb-3 px-4">
-                {truncate(blog.description || "", 175)}
-              </p>
-              {blog.tags && blog.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 px-4 pb-3">
-                  {blog.tags.map((tag: string) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] text-secondary bg-[#dfdddd] dark:bg-white/5 rounded-sm px-2 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <div
+                onMouseEnter={() => setHoveredSlug(blog.slug)}
+                onMouseMove={handleContentMove}
+                onMouseLeave={() => setHoveredSlug(null)}
+                className={`transition-all duration-300 ${
+                  hoveredSlug && hoveredSlug !== blog.slug
+                    ? "opacity-40 blur-[2px]"
+                    : "opacity-100 blur-0"
+                }`}
+              >
+                <div className="flex items-center justify-between px-4">
+                  <h2 className="text-primary text-base font-bold tracking-tight w-fit">
+                    {blog.title}
+                  </h2>
+                  <span className="text-secondary text-sm font-medium flex items-center gap-1 shrink-0">
+                    Read more
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
                 </div>
-              )}
-              <p className="text-secondary text-sm md:text-sm flex gap-1.5 px-4 pb-7">
-                <CalendarDays className="h-4.5 w-4.5" />
-                <span>
-                  {new Date(blog.date || "").toLocaleDateString("en-us", {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric",
-                  })}
-                </span>
-              </p>
-            </div>
+                <p className="text-secondary max-w-lg pt-2 text-sm md:text-sm pb-3 px-4">
+                  {truncate(blog.description || "", 175)}
+                </p>
+                {blog.tags && blog.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 px-4 pb-3">
+                    {blog.tags.map((tag: string) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] text-secondary bg-[#dfdddd] dark:bg-white/5 rounded-sm px-2 py-1"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <p className="text-secondary text-sm md:text-sm flex gap-1.5 px-4 pb-7">
+                  <CalendarDays className="h-4.5 w-4.5" />
+                  <span>
+                    {new Date(blog.date || "").toLocaleDateString("en-us", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </span>
+                </p>
+              </div>
 
-            {/* Preview: sits just below this post's own tags (not
+              {/* Preview: sits just below this post's own tags (not
                 overlapping them), and slides left/right to follow the
                 cursor as it moves across the heading above. Only shown
                 for the currently-hovered row. */}
-            {hoveredSlug === blog.slug && blog.image && (
-              <div
-                className="pointer-events-none absolute top-full z-20 hidden w-[280px] overflow-hidden rounded-xl border border-black/5 bg-white shadow-xl md:block dark:border-white/10 dark:bg-neutral-900"
-                style={{ left: cursorX }}
-              >
-                <div className="relative h-44 w-full">
-                  <Image
-                    src={blog.image}
-                    alt=""
-                    fill
-                    sizes="280px"
-                    className="object-cover"
-                  />
+              {hoveredSlug === blog.slug && blog.image && (
+                <div
+                  className={`pointer-events-none absolute z-20 hidden w-[280px] overflow-hidden rounded-xl border border-black/5 bg-white shadow-xl md:block dark:border-white/10 dark:bg-neutral-900 ${
+                    isLast ? "bottom-full mb-2" : "top-full"
+                  }`}
+                  style={{ left: cursorX }}
+                >
+                  <div className="relative h-44 w-full">
+                    <Image
+                      src={blog.image}
+                      alt=""
+                      fill
+                      sizes="280px"
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
-                {/* <p className="text-primary truncate px-3 py-2.5 text-sm font-medium">
-                  {blog.title}
-                </p> */}
-              </div>
-            )}
-          </Link>
-        ))}
+              )}
+            </Link>
+          );
+        })}
       </div>
     </>
   );
