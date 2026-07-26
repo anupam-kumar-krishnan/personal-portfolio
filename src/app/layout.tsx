@@ -8,6 +8,7 @@ import { AppleHelloSplash } from "@/components/apple-hello-splash";
 import { getAllPosts } from "@/lib/blog";
 import { CommandPalette } from "@/components/command-palette";
 import { Toaster } from "@/components/ui/sonner";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -59,6 +60,13 @@ export default function RootLayout({
   const posts = getAllPosts();
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          src={process.env.NEXT_PUBLIC_UMAMI_SRC}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+          strategy="afterInteractive"
+        />
+      </head>
       <body
         suppressHydrationWarning
         className={`${inter.className} relative [--pattern-fg:var(--color-neutral-950)]/5 antialiased`}
