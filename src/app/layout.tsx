@@ -5,9 +5,9 @@ import { Navbar } from "../components/navbar/index";
 import { Footer } from "@/components/navbar/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppleHelloSplash } from "@/components/apple-hello-splash";
-import { Toaster } from "sonner";
 import { getAllPosts } from "@/lib/blog";
 import { CommandPalette } from "@/components/command-palette";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,11 +64,11 @@ export default function RootLayout({
         className={`${inter.className} relative [--pattern-fg:var(--color-neutral-950)]/5 antialiased`}
       >
         <ThemeProvider>
-          <Toaster position="top-center" />
           <AppleHelloSplash />
           <Navbar />
 
           {children}
+          <Toaster position="bottom-right" />
           <CommandPalette posts={posts} />
           <Footer />
         </ThemeProvider>

@@ -1,5 +1,6 @@
 "use client";
 import { useState, FormEvent } from "react";
+import { toast } from "sonner";
 import SectionHeading from "./section-heading";
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -7,14 +8,12 @@ type Status = "idle" | "loading" | "success" | "error";
 export default function GetInTouch() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email.trim() || status === "loading") return;
 
     setStatus("loading");
-    setErrorMessage("");
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -34,15 +33,18 @@ export default function GetInTouch() {
       if (data.success) {
         setStatus("success");
         setEmail("");
+        toast.success(
+          "Thanks! Your enquiry has been sent. I'll get back to you soon.",
+        );
       } else {
         setStatus("error");
-        setErrorMessage(
-          data.message || "Something went wrong. Please try again.",
-        );
+        toast.error(data.message || "Something went wrong. Please try again.");
       }
     } catch {
       setStatus("error");
-      setErrorMessage("Network error. Please try again.");
+      toast.error("Network error. Please try again.");
+    } finally {
+      setStatus("idle");
     }
   };
 
@@ -85,18 +87,6 @@ export default function GetInTouch() {
           {status === "loading" ? "Sending..." : "Send Enquiry"}
         </button>
       </form>
-
-      {/* Status message */}
-      {status === "success" && (
-        <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
-          Thanks! Your enquiry has been sent — I'll get back to you soon.
-        </p>
-      )}
-      {status === "error" && (
-        <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
-          {errorMessage}
-        </p>
-      )}
     </div>
   );
 }

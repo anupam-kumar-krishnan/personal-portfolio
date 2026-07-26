@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 
 function CalendarIcon() {
   return (
@@ -136,8 +137,9 @@ export default function BlogMeta({
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
+      toast.success("Link copied to clipboard!");
+      // setCopied(true);
+      // setTimeout(() => setCopied(false), 1500);
     } catch {
       // Clipboard API may be unavailable (e.g. non-secure context) —
       // fail silently rather than throwing in the UI.
@@ -162,7 +164,7 @@ export default function BlogMeta({
         <button
           type="button"
           onClick={() => setShareOpen((v) => !v)}
-          className="flex items-center gap-1.5 rounded-sm border border-gray-300 px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-800"
+          className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-800"
         >
           <ShareIcon />
           Share
@@ -173,7 +175,7 @@ export default function BlogMeta({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
           <div
             ref={modalRef}
-            className="w-full max-w-sm rounded-2xl border border-gray-200 bg-white p-5 shadow-xl dark:border-neutral-700 dark:bg-neutral-900"
+            className="w-full max-w-xl rounded-2xl border border-gray-200 bg-white p-5 shadow-xl dark:border-neutral-700 dark:bg-neutral-900"
           >
             <div className="mb-4 flex items-start justify-between">
               <div>
@@ -212,11 +214,11 @@ export default function BlogMeta({
                 <CopyIcon />
               </button>
             </div>
-            {copied && (
-              <div className="-mt-3 mb-3 text-xs text-green-600 dark:text-green-400">
+            {/* {copied && (
+              <div className="-mt-3 mb-3 text-xs text-neutral-600 dark:text-neutral-400">
                 Copied!
               </div>
-            )}
+            )} */}
 
             <div className="mb-1 text-xs font-medium text-gray-500 dark:text-neutral-400">
               Share on
@@ -226,7 +228,7 @@ export default function BlogMeta({
                 href={twitterHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-gray-300 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-800"
+                className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-gray-300 py-2 text-sm font-medium text-gray-700 no-underline hover:bg-gray-50 dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-800"
               >
                 <XIcon />
                 Twitter / X
@@ -235,7 +237,7 @@ export default function BlogMeta({
                 href={linkedinHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-gray-300 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-800"
+                className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-gray-300 py-2 text-sm font-medium text-gray-700 no-underline hover:bg-gray-50 dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-800"
               >
                 <LinkedInIcon />
                 LinkedIn
