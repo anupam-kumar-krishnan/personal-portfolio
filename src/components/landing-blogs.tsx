@@ -2,7 +2,7 @@ import React from "react";
 import { getBlogs } from "@/utils/mdx";
 import Link from "next/link";
 import SectionHeading from "@/components/section-heading";
-import { CalendarDays, ArrowRight } from "lucide-react";
+import { CalendarDays, ArrowRight, ArrowUpRight } from "lucide-react";
 
 export const LandingBlogs = async () => {
   const allBlogs = await getBlogs();
@@ -63,9 +63,9 @@ export const LandingBlogs = async () => {
 
         <Link
           href="/blog"
-          className="mx-auto w-fit rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 transition hover:bg-neutral-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+          className="mx-auto flex items-center gap-2 w-fit rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 transition hover:bg-neutral-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
         >
-          Show all blogs
+          Show all blogs <ArrowUpRight className="w-4 h-4" />
         </Link>
       </div>
     </div>
