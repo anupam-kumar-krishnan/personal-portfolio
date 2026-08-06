@@ -11,7 +11,7 @@ import {
 const socials = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/anupamkkrishnan/",
+    href: "https://www.linkedin.com/in/anupamkumarkrishnan/",
     icon: FaLinkedin,
   },
   {
