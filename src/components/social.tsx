@@ -38,7 +38,7 @@ export default function SocialLinks() {
         delay={0.2}
         className="bg-neutral-100 w-fit mt-10 ml-4 text-center pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-neutral-700 text-sm sm:text:sm dark:bg-[#262727] dark:text-white rounded-md"
       >
-        &nbsp;Come say hi
+        &nbsp;Let's Connect
       </SectionHeading>
       <div className="mt-8 ml-5 flex flex-wrap items-center justify-start gap-3">
         <TooltipProvider delayDuration={150}>
