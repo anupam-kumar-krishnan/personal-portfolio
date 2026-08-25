@@ -82,8 +82,9 @@ export const projects: Project[] = [
   },
   {
     title: "Reqon",
-    src: "/projects/project-reqon.png",
+    src: "/projects/reqon-project.png",
     githubUrl: "https://github.com/anupam-kumar-krishnan/reqon",
+    liveUrl: "https://reqon-seven.vercel.app/",
     description:
       "API Testing Tool which manage REST APIs and WebSocket connections efficiently.",
     stack: [
