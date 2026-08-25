@@ -15,7 +15,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Snappy UI Library",
-    src: "/projects/project-snappy-ui.png",
+    src: "/projects/snappyui-project.png",
     githubUrl: "https://github.com/anupam-kumar-krishnan/snappy-ui",
     liveUrl: "https://snappy-ui-six.vercel.app/",
     description:
@@ -29,8 +29,44 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "Baarish - Rain Jukebox",
+    src: "/projects/baarish-project.png",
+    githubUrl: "https://github.com/anupam-kumar-krishnan/rain-jukebox",
+    description:
+      "A music player streaming audio via YouTube IFrame API — hidden video, clean audio-player UI.",
+    stack: [
+      { icon: "nextjs", name: "Next JS" },
+      { icon: "tailwind", name: "Tailwind CSS" },
+    ],
+  },
+  {
+    title: "Framerly",
+    src: "/projects/framerly-project.png",
+    githubUrl: "https://github.com/anupam-kumar-krishnan/framerly",
+    liveUrl: "https://framerly-shot.vercel.app/",
+    description:
+      "Framerly gives polished and beautiful image, ready for your landing page, deck, or tweet.",
+    stack: [
+      { icon: "nextjs", name: "Next JS" },
+      { icon: "tailwind", name: "Tailwind CSS" },
+      { icon: "motion", name: "Motion" },
+    ],
+  },
+  {
+    title: "Portfolio",
+    src: "/projects/portfolio-project.png",
+    githubUrl: "https://github.com/anupam-kumar-krishnan/personal-portfolio",
+    description:
+      "Portfolio Website to showcase my Work, Experience, and Technical skills as a Software Developer.",
+    stack: [
+      { icon: "nextjs", name: "Next JS" },
+      { icon: "tailwind", name: "Tailwind CSS" },
+      { icon: "motion", name: "Motion" },
+    ],
+  },
+  {
     title: "AI Resume Reviewer",
-    src: "/projects/project-resume-reviewer.png",
+    src: "/projects/airesumereviewer-project.png",
     githubUrl: "https://github.com/anupam-kumar-krishnan/resume-reviewer",
     liveUrl: "https://resume-reviewer-alpha.vercel.app/",
     description:
@@ -55,20 +91,6 @@ export const projects: Project[] = [
       { icon: "shadcn", name: "Shadcn/UI" },
       { icon: "tailwind", name: "Tailwind CSS" },
       { icon: "betterauth", name: "Better Auth" },
-    ],
-  },
-  {
-    title: "CodeBits",
-    src: "/projects/project-codebits.png",
-    githubUrl: "https://github.com/anupam-kumar-krishnan/codebits",
-    liveUrl: "https://code-snippet-brown.vercel.app/",
-    description:
-      "A Tool to create customizable, shareable code snippets with auto language detection, theming, font options, dark mode, and export as image or SVG.",
-    stack: [
-      { icon: "react", name: "React JS" },
-      { icon: "tailwind", name: "Tailwind CSS" },
-      { icon: "shadcn", name: "Shadcn/UI" },
-      { icon: "zustand", name: "Zustand" },
     ],
   },
 ];
