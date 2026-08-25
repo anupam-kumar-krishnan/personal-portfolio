@@ -12,7 +12,7 @@ export default function ProjectsPage() {
         <Heading>Projects</Heading>
         <Subheading>
           I&apos;m a passionate Software Engineer dedicated to crafting elegant
-          solutions for complex problems. With exertise in frontend, I enjoy
+          solutions for complex problems. With expertise in frontend, I enjoy
           building user-centric applications that make a difference. When I'm
           not coding, you can find me exploring new technologies, making side
           projects or sharing knowledge through technical writing.
