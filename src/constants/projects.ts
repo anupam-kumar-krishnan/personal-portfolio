@@ -32,6 +32,7 @@ export const projects: Project[] = [
     title: "Baarish - Rain Jukebox",
     src: "/projects/baarish-project.png",
     githubUrl: "https://github.com/anupam-kumar-krishnan/rain-jukebox",
+    liveUrl: "https://rain-jukebox.vercel.app/",
     description:
       "A music player streaming audio via YouTube IFrame API — hidden video, clean audio-player UI.",
     stack: [
@@ -56,6 +57,7 @@ export const projects: Project[] = [
     title: "Portfolio",
     src: "/projects/portfolio-project.png",
     githubUrl: "https://github.com/anupam-kumar-krishnan/personal-portfolio",
+    liveUrl: "https://anupam-k-krishnan.vercel.app/",
     description:
       "Portfolio Website to showcase my Work, Experience, and Technical skills as a Software Developer.",
     stack: [
