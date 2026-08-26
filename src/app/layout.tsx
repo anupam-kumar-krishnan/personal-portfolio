@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     url: "https://anupam-k-krishnan.vercel.app",
     images: [
       {
-        url: "https://anupam-k-krishnan.vercel.app/og-image.jpg",
+        url: "https://anupam-k-krishnan.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Anupam Kumar Krishnan — Frontend Engineer",
