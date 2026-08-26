@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Anupam Kumar Krishnan",
     description:
       "Frontend Engineer. Ex-IBM. I ship components daily and write about what I learn.",
-    images: ["https://anupam-k-krishnan.vercel.app/og-image.jpg"],
+    images: ["https://anupam-k-krishnan.vercel.app/og-image.png"],
   },
 };
 
