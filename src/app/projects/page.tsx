@@ -17,7 +17,7 @@ export default function ProjectsPage() {
           not coding, you can find me exploring new technologies, making side
           projects or sharing knowledge through technical writing.
         </Subheading>
-        <Projects />
+        <Projects paginated={false} />
       </Container>
     </div>
   );

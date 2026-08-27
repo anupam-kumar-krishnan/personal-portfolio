@@ -150,19 +150,92 @@ const NavArrow = ({
   </button>
 );
 
+const ProjectCard = ({ project, idx }: { project: Project; idx: number }) => (
+  <motion.div
+    initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+    whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+    viewport={{ once: true }}
+    transition={{
+      duration: 0.3,
+      delay: idx * 0.1,
+      ease: "easeInOut",
+    }}
+    className="group relative h-80"
+  >
+    <div>
+      <Image
+        src={project.src}
+        alt={project.title}
+        height={540}
+        width={400}
+        className="w-full rounded-xl object-cover transition duration-200 group-hover:scale-[1.02]"
+      />
+      <h2 className="z-20 mt-2 font-semibold tracking-tight text-neutral-500 dark:text-neutral-400">
+        {project.title}
+      </h2>
+      <p className="mt-2 max-w-xs text-sm text-neutral-500 dark:text-neutral-400 pb-4">
+        {project.description}
+      </p>
+
+      <div className="flex items-center justify-between">
+        {/* Overlapping tech badges */}
+        <div className="flex items-center">
+          {project.stack?.map((tech, i) => (
+            <TechBadge
+              key={tech.name}
+              iconKey={tech.icon}
+              name={tech.name}
+              index={i}
+            />
+          ))}
+        </div>
+
+        {/* Links */}
+        <div className="flex items-center gap-2">
+          {project.liveUrl && (
+            <Link
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Live site"
+            >
+              <FaGlobe className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition h-4 w-4" />
+            </Link>
+          )}
+          {project.githubUrl && (
+            <Link
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <FaGithub className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition h-4 w-4" />
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+  </motion.div>
+);
+
 export const Projects = ({
   projects = defaultProjects,
+  paginated = true,
 }: {
   projects?: Project[];
+  /** true = home page arrow-slider (3 per page). false = show everything in a static grid. */
+  paginated?: boolean;
 }) => {
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(1);
 
   const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE);
-  const visibleProjects = projects.slice(
-    page * ITEMS_PER_PAGE,
-    page * ITEMS_PER_PAGE + ITEMS_PER_PAGE,
-  );
+  const visibleProjects = paginated
+    ? projects.slice(
+        page * ITEMS_PER_PAGE,
+        page * ITEMS_PER_PAGE + ITEMS_PER_PAGE,
+      )
+    : projects;
 
   const goNext = () => {
     if (page < totalPages - 1) {
@@ -178,8 +251,8 @@ export const Projects = ({
     }
   };
 
-  const showLeft = page > 0;
-  const showRight = page < totalPages - 1;
+  const showLeft = paginated && page > 0;
+  const showRight = paginated && page < totalPages - 1;
 
   return (
     <div className="my-4 border-y border-neutral-100 shadow-section-inset dark:border-neutral-800">
@@ -191,7 +264,7 @@ export const Projects = ({
           &nbsp;What I've built
         </SectionHeading>
 
-        {totalPages > 1 && (
+        {paginated && totalPages > 1 && (
           <div className="flex items-center gap-2">
             {showLeft && <NavArrow direction="left" onClick={goPrev} />}
             {showRight && <NavArrow direction="right" onClick={goNext} />}
@@ -200,86 +273,30 @@ export const Projects = ({
       </div>
 
       <div className="overflow-hidden py-8 px-4">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={page}
-            custom={direction}
-            variants={slideVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="grid grid-cols-1 gap-15 md:grid-cols-3"
-          >
+        {paginated ? (
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={page}
+              custom={direction}
+              variants={slideVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="grid grid-cols-1 gap-15 md:grid-cols-3"
+            >
+              {visibleProjects.map((project, idx) => (
+                <ProjectCard key={project.title} project={project} idx={idx} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        ) : (
+          <div className="grid grid-cols-1 gap-15 md:grid-cols-3">
             {visibleProjects.map((project, idx) => (
-              <motion.div
-                initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-                whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: idx * 0.1,
-                  ease: "easeInOut",
-                }}
-                key={project.title}
-                className="group relative h-80"
-              >
-                <div>
-                  <Image
-                    src={project.src}
-                    alt={project.title}
-                    height={540}
-                    width={400}
-                    className="w-full rounded-xl object-cover transition duration-200 group-hover:scale-[1.02]"
-                  />
-                  <h2 className="z-20 mt-2 font-semibold tracking-tight text-neutral-500 dark:text-neutral-400">
-                    {project.title}
-                  </h2>
-                  <p className="mt-2 max-w-xs text-sm text-neutral-500 dark:text-neutral-400 pb-4">
-                    {project.description}
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    {/* Overlapping tech badges */}
-                    <div className="flex items-center">
-                      {project.stack?.map((tech, i) => (
-                        <TechBadge
-                          key={tech.name}
-                          iconKey={tech.icon}
-                          name={tech.name}
-                          index={i}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Links */}
-                    <div className="flex items-center gap-2">
-                      {project.liveUrl && (
-                        <Link
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="Live site"
-                        >
-                          <FaGlobe className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition h-4 w-4" />
-                        </Link>
-                      )}
-                      {project.githubUrl && (
-                        <Link
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="GitHub"
-                        >
-                          <FaGithub className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition h-4 w-4" />
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+              <ProjectCard key={project.title} project={project} idx={idx} />
             ))}
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        )}
       </div>
     </div>
   );

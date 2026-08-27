@@ -65,7 +65,7 @@ export default function Home() {
         <SocialLinks />
         <Github />
         {/* <Projects projects={projects.slice(0, 3)} /> */}
-        <Projects projects={projects} />
+        <Projects projects={projects} paginated={true} />
         <Work />
         <Stack />
         <LandingBlogs />
