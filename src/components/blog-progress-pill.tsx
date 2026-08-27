@@ -85,7 +85,6 @@ export default function ReadingProgressPill({
         }
       });
 
-   
       const NEAR_BOTTOM_TOLERANCE = 4;
       const scrolledToBottom =
         window.innerHeight + window.scrollY >=
@@ -144,7 +143,7 @@ export default function ReadingProgressPill({
   }, [expanded]);
 
   const handleSelectHeading = (item: HeadingItem) => {
-    const NAVBAR_HEIGHT = 88; // set this to your navbar's actual height in px
+    const NAVBAR_HEIGHT = 88;
     const extraBreathingRoom = 16;
 
     const top =
