@@ -29,15 +29,19 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Baarish - Rain Jukebox",
-    src: "/projects/baarish-project.png",
-    githubUrl: "https://github.com/anupam-kumar-krishnan/rain-jukebox",
-    liveUrl: "https://rain-jukebox.vercel.app/",
+    title: "Reqon",
+    src: "/projects/reqon-project.png",
+    githubUrl: "https://github.com/anupam-kumar-krishnan/reqon",
+    liveUrl: "https://reqon-seven.vercel.app/",
     description:
-      "A music player streaming audio via YouTube IFrame API — hidden video, clean audio-player UI.",
+      "API Testing Tool which manage REST APIs and WebSocket connections efficiently.",
     stack: [
       { icon: "nextjs", name: "Next JS" },
+      { icon: "postgresql", name: "PostgreSQL" },
+      { icon: "tanstack", name: "TanStack" },
+      { icon: "shadcn", name: "Shadcn/UI" },
       { icon: "tailwind", name: "Tailwind CSS" },
+      { icon: "betterauth", name: "Better Auth" },
     ],
   },
   {
@@ -54,16 +58,29 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Portfolio",
-    src: "/projects/portfolio-project.png",
-    githubUrl: "https://github.com/anupam-kumar-krishnan/personal-portfolio",
-    liveUrl: "https://anupam-k-krishnan.vercel.app/",
+    title: "Baarish - Rain Jukebox",
+    src: "/projects/baarish-project.png",
+    githubUrl: "https://github.com/anupam-kumar-krishnan/rain-jukebox",
+    liveUrl: "https://rain-jukebox.vercel.app/",
     description:
-      "Portfolio Website to showcase my Work, Experience, and Technical skills as a Software Developer.",
+      "A music player streaming audio via YouTube IFrame API — hidden video, clean audio-player UI.",
     stack: [
       { icon: "nextjs", name: "Next JS" },
       { icon: "tailwind", name: "Tailwind CSS" },
-      { icon: "motion", name: "Motion" },
+      { icon: "api", name: "Youtube" },
+    ],
+  },
+  {
+    title: "Marginal",
+    src: "/projects/marginal-project-dark.png",
+    githubUrl: "https://github.com/anupam-kumar-krishnan/marginal",
+    liveUrl: "https://marginal-wine.vercel.app/",
+    description:
+      "Marginal is a quiet, block-based notebook. Type a slash for instant commands, start from a template.",
+    stack: [
+      { icon: "nextjs", name: "Next JS" },
+      { icon: "tailwind", name: "Tailwind CSS" },
+      { icon: "zustand", name: "Zustand" },
     ],
   },
   {
@@ -81,19 +98,16 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Reqon",
-    src: "/projects/reqon-project.png",
-    githubUrl: "https://github.com/anupam-kumar-krishnan/reqon",
-    liveUrl: "https://reqon-seven.vercel.app/",
+    title: "Portfolio",
+    src: "/projects/portfolio-project.png",
+    githubUrl: "https://github.com/anupam-kumar-krishnan/personal-portfolio",
+    liveUrl: "https://anupam-k-krishnan.vercel.app/",
     description:
-      "API Testing Tool which manage REST APIs and WebSocket connections efficiently.",
+      "Portfolio Website to showcase my Work, Experience, and Technical skills as a Software Developer.",
     stack: [
       { icon: "nextjs", name: "Next JS" },
-      { icon: "postgresql", name: "PostgreSQL" },
-      { icon: "tanstack", name: "TanStack" },
-      { icon: "shadcn", name: "Shadcn/UI" },
       { icon: "tailwind", name: "Tailwind CSS" },
-      { icon: "betterauth", name: "Better Auth" },
+      { icon: "motion", name: "Motion" },
     ],
   },
 ];
