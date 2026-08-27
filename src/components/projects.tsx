@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, Variants } from "motion/react";
 import Link from "next/link";
 import { Project, projects as defaultProjects } from "@/constants/projects";
 import SectionHeading from "./section-heading";
@@ -19,7 +19,7 @@ import {
   SiReactrouter,
   SiBetterauth,
 } from "react-icons/si";
-import { LuBrainCircuit } from "react-icons/lu";
+import { LuBrainCircuit, LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { IconType } from "react-icons";
 import { RiBearSmileFill } from "react-icons/ri";
 import { GiPalmTree } from "react-icons/gi";
@@ -61,6 +61,14 @@ const iconColors: Record<string, string> = {
   betterauth: "#000000",
 };
 
+const ITEMS_PER_PAGE = 3;
+
+const slideVariants: Variants = {
+  initial: (dir: number) => ({ x: dir > 0 ? 60 : -60, opacity: 0 }),
+  animate: { x: 0, opacity: 1 },
+  exit: (dir: number) => ({ x: dir > 0 ? -60 : 60, opacity: 0 }),
+};
+
 const TechBadge = ({
   iconKey,
   name,
@@ -78,7 +86,7 @@ const TechBadge = ({
   return (
     <motion.div
       style={{
-        zIndex: hovered ? 10 : Math.max(0, Projects.length - index),
+        zIndex: hovered ? 10 : Math.max(0, 10 - index),
         marginLeft: index === 0 ? 0 : "-8px",
       }}
       onMouseEnter={() => setHovered(true)}
@@ -122,83 +130,156 @@ const TechBadge = ({
   );
 };
 
+const NavArrow = ({
+  direction,
+  onClick,
+}: {
+  direction: "left" | "right";
+  onClick: () => void;
+}) => (
+  <button
+    onClick={onClick}
+    aria-label={direction === "left" ? "Previous projects" : "Next projects"}
+    className="flex h-7 w-7 items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-600 shadow-sm transition hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
+  >
+    {direction === "left" ? (
+      <LuChevronLeft className="h-4 w-4" />
+    ) : (
+      <LuChevronRight className="h-4 w-4" />
+    )}
+  </button>
+);
+
 export const Projects = ({
   projects = defaultProjects,
 }: {
   projects?: Project[];
 }) => {
+  const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE);
+  const visibleProjects = projects.slice(
+    page * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE + ITEMS_PER_PAGE,
+  );
+
+  const goNext = () => {
+    if (page < totalPages - 1) {
+      setDirection(1);
+      setPage((p) => p + 1);
+    }
+  };
+
+  const goPrev = () => {
+    if (page > 0) {
+      setDirection(-1);
+      setPage((p) => p - 1);
+    }
+  };
+
+  const showLeft = page > 0;
+  const showRight = page < totalPages - 1;
+
   return (
     <div className="my-4 border-y border-neutral-100 shadow-section-inset dark:border-neutral-800">
-      <SectionHeading
-        delay={0.2}
-        className="bg-neutral-100 w-fit mt-10 ml-4 text-center pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-neutral-700 text-sm sm:text:sm dark:bg-[#262727] dark:text-white rounded-md"
-      >
-        &nbsp;What I've built
-      </SectionHeading>
-      <div className="grid grid-cols-1 gap-15 py-8 md:grid-cols-3 px-4">
-        {projects.map((project, idx) => (
+      <div className="flex items-center justify-between pt-10 pr-4 pl-4">
+        <SectionHeading
+          delay={0.2}
+          className="bg-neutral-100 w-fit text-center pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-neutral-700 text-sm sm:text:sm dark:bg-[#262727] dark:text-white rounded-md"
+        >
+          &nbsp;What I've built
+        </SectionHeading>
+
+        {totalPages > 1 && (
+          <div className="flex items-center gap-2">
+            {showLeft && <NavArrow direction="left" onClick={goPrev} />}
+            {showRight && <NavArrow direction="right" onClick={goNext} />}
+          </div>
+        )}
+      </div>
+
+      <div className="overflow-hidden py-8 px-4">
+        <AnimatePresence mode="wait" custom={direction}>
           <motion.div
-            initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-            whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 0.3, delay: idx * 0.1, ease: "easeInOut" }}
-            key={project.title}
-            className="group relative h-80"
+            key={page}
+            custom={direction}
+            variants={slideVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="grid grid-cols-1 gap-15 md:grid-cols-3"
           >
-            <div>
-              <Image
-                src={project.src}
-                alt={project.title}
-                height={540}
-                width={400}
-                className="w-full rounded-xl object-cover transition duration-200 group-hover:scale-[1.02]"
-              />
-              <h2 className="z-20 mt-2 font-semibold tracking-tight text-neutral-500 dark:text-neutral-400">
-                {project.title}
-              </h2>
-              <p className="mt-2 max-w-xs text-sm text-neutral-500 dark:text-neutral-400 pb-4">
-                {project.description}
-              </p>
+            {visibleProjects.map((project, idx) => (
+              <motion.div
+                initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+                whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{
+                  duration: 0.3,
+                  delay: idx * 0.1,
+                  ease: "easeInOut",
+                }}
+                key={project.title}
+                className="group relative h-80"
+              >
+                <div>
+                  <Image
+                    src={project.src}
+                    alt={project.title}
+                    height={540}
+                    width={400}
+                    className="w-full rounded-xl object-cover transition duration-200 group-hover:scale-[1.02]"
+                  />
+                  <h2 className="z-20 mt-2 font-semibold tracking-tight text-neutral-500 dark:text-neutral-400">
+                    {project.title}
+                  </h2>
+                  <p className="mt-2 max-w-xs text-sm text-neutral-500 dark:text-neutral-400 pb-4">
+                    {project.description}
+                  </p>
 
-              <div className="flex items-center justify-between">
-                {/* Overlapping tech badges */}
-                <div className="flex items-center">
-                  {project.stack?.map((tech, i) => (
-                    <TechBadge
-                      key={tech.name}
-                      iconKey={tech.icon}
-                      name={tech.name}
-                      index={i}
-                    />
-                  ))}
-                </div>
+                  <div className="flex items-center justify-between">
+                    {/* Overlapping tech badges */}
+                    <div className="flex items-center">
+                      {project.stack?.map((tech, i) => (
+                        <TechBadge
+                          key={tech.name}
+                          iconKey={tech.icon}
+                          name={tech.name}
+                          index={i}
+                        />
+                      ))}
+                    </div>
 
-                {/* Links */}
-                <div className="flex items-center gap-2">
-                  {project.liveUrl && (
-                    <Link
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Live site"
-                    >
-                      <FaGlobe className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition h-4 w-4" />
-                    </Link>
-                  )}
-                  {project.githubUrl && (
-                    <Link
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub"
-                    >
-                      <FaGithub className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition h-4 w-4" />
-                    </Link>
-                  )}
+                    {/* Links */}
+                    <div className="flex items-center gap-2">
+                      {project.liveUrl && (
+                        <Link
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Live site"
+                        >
+                          <FaGlobe className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition h-4 w-4" />
+                        </Link>
+                      )}
+                      {project.githubUrl && (
+                        <Link
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="GitHub"
+                        >
+                          <FaGithub className="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition h-4 w-4" />
+                        </Link>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </motion.div>
-        ))}
+        </AnimatePresence>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 export type TechStack = {
-  icon: string; // just a string key now
+  icon: string;
   name: string;
 };
 

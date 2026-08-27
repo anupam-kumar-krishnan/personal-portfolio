@@ -11,7 +11,7 @@ type Blog = {
   description?: string;
   date?: string;
   tags?: string[];
-  image?: string; // cover image shown in the hover preview
+  image?: string;
 };
 
 const truncate = (str: string, length: number) => {
@@ -24,9 +24,6 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
   const [showLeftFade, setShowLeftFade] = useState(false);
   const [showRightFade, setShowRightFade] = useState(false);
 
-  // Hover preview state: which post is hovered, and the cursor's x position
-  // relative to that post's row (so the preview can slide horizontally as
-  // the cursor moves across the heading).
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
   const [cursorX, setCursorX] = useState(0);
   const previewWidth = 280;
@@ -40,8 +37,6 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
     setCursorX(clamped);
   };
 
-  // Derive tag list + counts from the blogs themselves, so it's
-  // always in sync with whatever tags actually exist on posts.
   const categories = useMemo(() => {
     const counts = new Map<string, number>();
     blogs.forEach((blog) => {
@@ -53,7 +48,7 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
     return [
       { name: "All", count: blogs.length },
       ...Array.from(counts.entries())
-        .sort((a, b) => b[1] - a[1]) // most-used tags first
+        .sort((a, b) => b[1] - a[1])
         .map(([name, count]) => ({ name, count })),
     ];
   }, [blogs]);

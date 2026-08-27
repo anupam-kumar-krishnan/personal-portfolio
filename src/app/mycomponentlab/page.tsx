@@ -24,7 +24,6 @@ interface XIconProps {
   className?: string;
 }
 
-// id = display number (No. 01, No. 02 …)
 const COMPONENTS: ComponentItem[] = [
   {
     id: 1,
@@ -223,11 +222,6 @@ function XIcon({ className }: XIconProps) {
   );
 }
 
-// ── id 1 ─────────────────────────────────────────────────────────────────────
-// NOTE: thumbnails intentionally stay on a fixed light "preview" surface —
-// they're demonstrating specific components (some of which are light-themed
-// by design), not the page chrome itself. Only the page/card chrome around
-// them switches with dark mode.
 function NavPillThumb() {
   return (
     <div className="flex items-center justify-center w-full py-5 px-4 overflow-hidden">
@@ -262,7 +256,6 @@ function NavPillThumb() {
   );
 }
 
-// ── id 2 ─────────────────────────────────────────────────────────────────────
 function BentoThumb() {
   return (
     <div
@@ -296,7 +289,6 @@ function BentoThumb() {
   );
 }
 
-// ── id 3 ─────────────────────────────────────────────────────────────────────
 function DarkBentoThumb() {
   return (
     <div
@@ -332,7 +324,6 @@ function DarkBentoThumb() {
   );
 }
 
-// ── id 4 ─────────────────────────────────────────────────────────────────────
 function FloatingMenuThumb() {
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -399,7 +390,6 @@ function FloatingMenuThumb() {
   );
 }
 
-// ── id 5 ─────────────────────────────────────────────────────────────────────
 function CTAThumb() {
   return (
     <div className="flex items-center justify-center w-full py-5 px-5">
@@ -426,7 +416,6 @@ function CTAThumb() {
   );
 }
 
-// ── id 6 ─────────────────────────────────────────────────────────────────────
 function FlipCardsThumb() {
   const cards = [
     { bullets: ["Design", "Layout", "Motion"] },
@@ -475,7 +464,6 @@ function FlipCardsThumb() {
   );
 }
 
-// ── id 7 ─────────────────────────────────────────────────────────────────────
 function HeroThumb() {
   return (
     <div className="flex flex-col w-full h-full" style={{ minHeight: 152 }}>
@@ -522,7 +510,6 @@ function HeroThumb() {
   );
 }
 
-// ── id 8 ─────────────────────────────────────────────────────────────────────
 function ReactiveCardThumb() {
   const cards = [
     {
@@ -684,7 +671,6 @@ function ReactiveCardThumb() {
   );
 }
 
-// ── id 9 ─────────────────────────────────────────────────────────────────────
 function FeatureSectionThumb() {
   return (
     <div
@@ -971,7 +957,6 @@ function FeatureSectionThumb() {
   );
 }
 
-// Thumbnail switch — id matches display number directly
 function Thumbnail({ id }: { id: number }) {
   switch (id) {
     case 1:

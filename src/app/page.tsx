@@ -64,7 +64,8 @@ export default function Home() {
         <Intro />
         <SocialLinks />
         <Github />
-        <Projects projects={projects.slice(0, 3)} />
+        {/* <Projects projects={projects.slice(0, 3)} /> */}
+        <Projects projects={projects} />
         <Work />
         <Stack />
         <LandingBlogs />

@@ -34,9 +34,7 @@ function useRecentSearches() {
     try {
       const stored = localStorage.getItem(RECENT_SEARCHES_KEY);
       if (stored) setRecentSearches(JSON.parse(stored));
-    } catch {
-      // ignore malformed/inaccessible storage
-    }
+    } catch {}
   }, []);
 
   const addRecentSearch = useCallback((term: string) => {
@@ -49,9 +47,7 @@ function useRecentSearches() {
       ].slice(0, MAX_RECENT);
       try {
         localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(updated));
-      } catch {
-        // storage may be unavailable (private mode, quota, etc.)
-      }
+      } catch {}
       return updated;
     });
   }, []);
@@ -61,9 +57,7 @@ function useRecentSearches() {
       const updated = prev.filter((q) => q !== term);
       try {
         localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(updated));
-      } catch {
-        // ignore
-      }
+      } catch {}
       return updated;
     });
   }, []);
@@ -71,9 +65,7 @@ function useRecentSearches() {
   const clearRecentSearches = useCallback(() => {
     try {
       localStorage.removeItem(RECENT_SEARCHES_KEY);
-    } catch {
-      // ignore
-    }
+    } catch {}
     setRecentSearches([]);
   }, []);
 
@@ -122,7 +114,6 @@ export function CommandPalette({ posts }: { posts: Post[] }) {
     };
   }, [open, playClickSound]);
 
-  // Internal navigation (pages, blog posts)
   const goTo = useCallback(
     (href: string) => {
       playClickSound();
@@ -134,7 +125,6 @@ export function CommandPalette({ posts }: { posts: Post[] }) {
     [router, playClickSound, query, addRecentSearch],
   );
 
-  // External navigation (projects — liveUrl, fallback githubUrl)
   const openExternal = useCallback(
     (url: string) => {
       playClickSound();

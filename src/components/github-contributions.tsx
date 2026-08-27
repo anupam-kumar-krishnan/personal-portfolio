@@ -40,7 +40,6 @@ export function GitHubContributions({
 
     if (!username) return;
 
-    // If we already have data, skip fetch
     if (data.length > 0) {
       setLoading(false);
       return;

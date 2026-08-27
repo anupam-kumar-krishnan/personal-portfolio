@@ -9,7 +9,7 @@ type GitHubContributionsResponse = {
 export const getCachedContributions = unstable_cache(
   async (username: string) => {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000); // 5s timeout
+    const timeout = setTimeout(() => controller.abort(), 5000);
 
     try {
       const res = await fetch(
@@ -24,12 +24,11 @@ export const getCachedContributions = unstable_cache(
       const data = (await res.json()) as GitHubContributionsResponse;
       return data.contributions ?? [];
     } catch (err) {
-      // On network errors/timeouts return an empty list so prerender doesn't fail
       return [];
     } finally {
       clearTimeout(timeout);
     }
   },
   ["github-contributions"],
-  { revalidate: 86400 }, // Cache for 1 day (86400 seconds)
+  { revalidate: 86400 },
 );

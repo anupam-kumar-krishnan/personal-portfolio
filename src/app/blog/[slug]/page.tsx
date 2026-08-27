@@ -19,7 +19,7 @@ export default async function SingleBlogPage({
     slug: string;
   }>;
 }) {
-  // ✅ FIXED: Await params in Next.js 15
+  
   const { slug } = await params;
 
   const blog = await getSingleBlog(slug);

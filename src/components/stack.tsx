@@ -25,10 +25,6 @@ import { FileText } from "lucide-react";
 import type { ReactNode } from "react";
 import SectionHeading from "./section-heading";
 
-// PostHog's mark is inherently multi-color (blue/red/yellow bars + dark
-// hedgehog silhouette), so it can't be represented with a single
-// currentColor swap like the other icons. Render it as a true multi-color
-// SVG and use a CSS grayscale filter for the muted state instead.
 function PostHogLogo({ className }: { className?: string }) {
   return (
     <svg
@@ -44,9 +40,6 @@ function PostHogLogo({ className }: { className?: string }) {
   );
 }
 
-// The official Figma mark is five filled shapes in distinct brand colors
-// (not an outline), so — like PostHog and Python — render the real
-// multicolor glyph and grayscale-toggle it instead of a currentColor swap.
 function FigmaLogo({ className }: { className?: string }) {
   return (
     <svg
@@ -78,9 +71,6 @@ function FigmaLogo({ className }: { className?: string }) {
   );
 }
 
-// The official Python mark is two interlocking snakes in distinct blue and
-// yellow, so — like PostHog and Figma — render the real two-tone glyph and
-// grayscale-toggle it instead of a currentColor swap.
 function PythonLogo({ className }: { className?: string }) {
   return (
     <svg
@@ -103,9 +93,9 @@ function PythonLogo({ className }: { className?: string }) {
 type Tech = {
   name: string;
   icon: ReactNode;
-  color?: string; // brand hex, revealed on hover (single-color icons)
-  multicolor?: boolean; // true = icon is already full color, just toggle grayscale
-  alwaysColor?: boolean; // true = render permanently in brand color, no gray/hover toggle (small brand marks that only read correctly in their real color)
+  color?: string; 
+  multicolor?: boolean; 
+  alwaysColor?: boolean;
 };
 
 type Category = {

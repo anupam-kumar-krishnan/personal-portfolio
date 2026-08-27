@@ -26,7 +26,6 @@ export default function ReadingProgressPill({
   const [headingItems, setHeadingItems] = useState<HeadingItem[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // --- Slide transition state for the pill's heading text ---
   const [displayedHeading, setDisplayedHeading] = useState(title);
   const [outgoingHeading, setOutgoingHeading] = useState<string | null>(null);
   const previousHeadingRef = useRef(title);
@@ -86,8 +85,7 @@ export default function ReadingProgressPill({
         }
       });
 
-      // If we've hit (or nearly hit) the bottom of the page, the last
-      // heading may never cross ACTIVE_OFFSET on its own — force it active.
+   
       const NEAR_BOTTOM_TOLERANCE = 4;
       const scrolledToBottom =
         window.innerHeight + window.scrollY >=

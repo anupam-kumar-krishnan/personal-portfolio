@@ -140,10 +140,7 @@ export default function BlogMeta({
       toast.success("Link copied to clipboard!");
       // setCopied(true);
       // setTimeout(() => setCopied(false), 1500);
-    } catch {
-      // Clipboard API may be unavailable (e.g. non-secure context) —
-      // fail silently rather than throwing in the UI.
-    }
+    } catch {}
   };
 
   const twitterHref = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
