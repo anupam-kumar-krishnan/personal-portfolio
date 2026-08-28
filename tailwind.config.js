@@ -6,5 +6,4 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
   ],
-  // ... rest of your config
 };

@@ -79,7 +79,7 @@ export function useSound(
       audio.currentTime = 0;
     }
 
-    // Attempt to play; browsers may reject without user gesture.
+    
     void audio.play().catch(() => {});
   };
 
