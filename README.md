@@ -1,12 +1,14 @@
-# ✨ Portfolio
+# ✨ _Portfolio_
+
+![Portfolio Banner](/public/projects/portfolio-project.png)
 
 A personal portfolio website built to showcase my projects, blogs, work experience, and a way to get in touch — all wrapped in a clean, fast, and responsive design with light/dark mode support.
 
-**Live Preview:** [Click Here](https://anupam-k-krishnan.vercel.app)
+🌐 **_Live Preview:_** _**[Click Here to view](https://anupam-k-krishnan.vercel.app)**_
 
 ---
 
-## ⚡ Tech Stack
+## ⚡ _Tech Stack_
 
 - **Framework:** [Next.js](https://nextjs.org/)
 - **CSS Utility:** [Tailwind CSS](https://tailwindcss.com/)
@@ -16,7 +18,7 @@ A personal portfolio website built to showcase my projects, blogs, work experien
 
 ---
 
-## 🧭 Portfolio Sections
+## 🧭 _Portfolio Sections_
 
 - **Introduction** — A quick intro about who I am and what I do, also some part of each section
 - **About** — Detailed info with personalized timeline
@@ -27,7 +29,7 @@ A personal portfolio website built to showcase my projects, blogs, work experien
 
 ---
 
-## 🌗 Features
+## 🌗 _Features_
 
 - Fully responsive design across devices
 - Light and dark mode toggle
