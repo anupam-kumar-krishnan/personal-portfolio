@@ -13,7 +13,6 @@ A personal portfolio website built to showcase my projects, blogs, work experien
 - **Framework:** [Next.js](https://nextjs.org/)
 - **CSS Utility:** [Tailwind CSS](https://tailwindcss.com/)
 - **Animation Library:** [Motion](https://motion.dev/)
-- **UI Library:** [Aceternity UI](https://ui.aceternity.com/)
 - **Form Handling:** [Web3Forms](https://web3forms.com/) — free, backend-less contact form email delivery
 
 ---
